@@ -6,15 +6,12 @@ const api = axios.create({
 
 // src = source, dst = destination
 const getRoute = async (src, dst) => {
-    console.log("Hi from getRoute in NavigationAPI.jsx");
     try {
-        console.log("from try")
-        console.log("the baseURL: " + baseURL)
-        const response = await api.post("/graph/route", {
+        const data = {
             source: src,
             destination: dst,
-        });
-        console.log("This is response: " + response);
+        };
+        const response = await api.post("/route", data);
         return response.data;
     } catch (err) {
         console.error(err);

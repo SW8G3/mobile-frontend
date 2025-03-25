@@ -15,7 +15,6 @@ function SearchPage() {
 
   const handleSearch = async () => {
     try {
-      console.log("From handleSearch")
       const result = await getRoute(from, to);
       setRoute(result);
       setError(null); // Clear any previous errors
