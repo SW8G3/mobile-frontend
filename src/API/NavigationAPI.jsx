@@ -4,6 +4,19 @@ const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL, 
 });
 
+const searchWithTag = async (searchTag) => {
+    try {
+        const data = {
+            searchTag,
+        };
+        const response = await api.post("/graph/search", data);
+        return response.data;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
+
 // src = source, dst = destination
 const getRoute = async (src, dst) => {
     try {
@@ -19,4 +32,4 @@ const getRoute = async (src, dst) => {
     }
 };
 
-export { getRoute };
+export { searchWithTag, getRoute };
