@@ -32,4 +32,18 @@ const getRoute = async (src, dst) => {
     }
 };
 
-export { searchWithTag, getRoute };
+const getDirectionPhoto = async (src, dst) => {
+    try {
+        const data = {
+            src: parseInt(src),
+            dst: parseInt(dst),
+        };
+        const response = await api.post("/graph/direction", data);
+        return response.data;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
+
+export { searchWithTag, getRoute, getDirectionPhoto };
