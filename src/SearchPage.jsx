@@ -8,8 +8,10 @@ import "./UserStyle.css";
 import { searchWithTag, getRoute } from "./API/NavigationAPI";
 
 function SearchPage() {
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
+  const [fromString, setFromString] = useState("");
+  const [toString, setToString] = useState("");
+  const [from, setFrom] = useState(0);
+  const [to, setTo] = useState(0);
   const [route, setRoute] = useState(null);
   const [error, setError] = useState(null);
   const [fromSuggestions, setFromSuggestions] = useState([]); // State for dropdown suggestions
@@ -28,7 +30,7 @@ function SearchPage() {
 
   const handleFromChange = async (e) => {
     const value = e.target.value;
-    setFrom(value);
+    setFromString(value);
 
     if (value.trim() === "") {
       setFromSuggestions([]); // Clear suggestions if input is empty
@@ -47,7 +49,7 @@ function SearchPage() {
 
   const handleToChange = async (e) => {
     const value = e.target.value;
-    setTo(value);
+    setToString(value);
 
     if (value.trim() === "") {
       setToSuggestions([]); // Clear suggestions if input is empty
@@ -68,7 +70,7 @@ function SearchPage() {
     <div>
       <p>From:</p>
       <input
-        value={from}
+        value={fromString}
         onChange={handleFromChange}
         placeholder="Enter starting location"
       />
@@ -80,6 +82,7 @@ function SearchPage() {
               style={{ padding: "5px", cursor: "pointer" }}
               onClick={() => {
                 setFrom(node.id);
+                setFromString(node.searchTags[0]);
                 setFromSuggestions([])
               }} // Set the selected suggestion
             >
@@ -90,7 +93,7 @@ function SearchPage() {
       )}
       <p>To:</p>
       <input
-        value={to}
+        value={toString}
         onChange={handleToChange}
         placeholder="Enter starting location"
       />
@@ -102,6 +105,7 @@ function SearchPage() {
               style={{ padding: "5px", cursor: "pointer" }}
               onClick={() => {
                 setTo(node.id);
+                setToString(node.searchTags[0]);
                 setToSuggestions([]);
               }
               } // Set the selected suggestion
