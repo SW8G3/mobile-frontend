@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { MapContainer, ImageOverlay, Marker, Popup, Polyline, useMapEvents } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-import "./App.css";
+import { useState } from 'react';
+import { MapContainer, ImageOverlay, Marker, Popup, Polyline, useMapEvents } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import './App.css';
 
 function App() {
   const bounds = [
@@ -20,7 +20,7 @@ function App() {
     useMapEvents({
       click: (e) => {
         // Prevent node creation if clicking an edge or button
-        if (e.originalEvent.target.tagName === "BUTTON" || e.originalEvent.target.classList.contains("edge-click-area")) {
+        if (e.originalEvent.target.tagName === 'BUTTON' || e.originalEvent.target.classList.contains('edge-click-area')) {
           return;
         }
         const newNode = { id: nodes.length + 1, position: [e.latlng.lat, e.latlng.lng] };
@@ -80,9 +80,9 @@ function App() {
 
   return (
     <>
-      <div className="map-container">
-        <MapContainer style={{ width: "100%", height: "100%" }} bounds={bounds} crs={L.CRS.Simple}>
-          <ImageOverlay url="/2sal.png" bounds={bounds} />
+      <div className='map-container'>
+        <MapContainer style={{ width: '100%', height: '100%' }} bounds={bounds} crs={L.CRS.Simple}>
+          <ImageOverlay url='/2sal.png' bounds={bounds} />
 
           {/* Handle Clicks to Add Nodes */}
           <MapClickHandler />
@@ -116,15 +116,15 @@ function App() {
               <Polyline
                 key={index}
                 positions={[fromPos, toPos]}
-                color={selectedEdge === index ? "red" : "blue"} // Highlight selected edge
+                color={selectedEdge === index ? 'red' : 'blue'} // Highlight selected edge
                 eventHandlers={{
                   click: (e) => {
                     e.originalEvent.stopPropagation(); // Stop map click event
-                    console.log("Edge clicked", index);
+                    console.log('Edge clicked', index);
                     setSelectedEdge(index);
                   },
                 }}
-                className="edge-click-area" // Add a class to identify edge click area
+                className='edge-click-area' // Add a class to identify edge click area
               />
             );
           })}
@@ -132,7 +132,7 @@ function App() {
 
         {/* Edge Deletion Menu */}
         {selectedEdge !== null && (
-          <div className="edge-menu">
+          <div className='edge-menu'>
             <p>Edge selected</p>
             <button onClick={handleDeleteEdge}>Delete Edge</button>
           </div>
