@@ -8,10 +8,10 @@ const api = axios.create({
 const getRoute = async (src, dst) => {
     try {
         const data = {
-            source: src,
-            destination: dst,
+            src: parseInt(src),
+            dst: parseInt(dst),
         };
-        const response = await api.post("/route", data);
+        const response = await api.post("/graph/route", data);
         return response.data;
     } catch (err) {
         console.error(err);
