@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL, 
@@ -9,13 +9,13 @@ const searchWithTag = async (searchTag) => {
         const data = {
             searchTag,
         };
-        const response = await api.post("/graph/search", data);
+        const response = await api.post('/graph/search', data);
         return response.data;
     } catch (err) {
         console.error(err);
         throw err;
     }
-}
+};
 
 // src = source, dst = destination
 const getRoute = async (src, dst) => {
@@ -24,7 +24,7 @@ const getRoute = async (src, dst) => {
             src: parseInt(src),
             dst: parseInt(dst),
         };
-        const response = await api.post("/graph/route", data);
+        const response = await api.post('/graph/route', data);
         return response.data;
     } catch (err) {
         console.error(err);
@@ -38,12 +38,12 @@ const getDirectionPhoto = async (src, dst) => {
             src: parseInt(src),
             dst: parseInt(dst),
         };
-        const response = await api.post("/graph/direction", data);
+        const response = await api.post('/graph/direction', data);
         return response.data;
     } catch (err) {
         console.error(err);
         throw err;
     }
-}
+};
 
 export { searchWithTag, getRoute, getDirectionPhoto };
