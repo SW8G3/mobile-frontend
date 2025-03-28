@@ -11,27 +11,31 @@ import { getDirectionPhoto } from "./API/NavigationAPI";
 function UserView() {
   const { route } = useRoute();
   console.log("Context is here: " + route);
-  const [nodePair, setNodePair] = useState((null, null));
+  const [imgUrls, setImgUrls] = useState([]);
 
   useEffect(() => {
-    console.log("Route effect: " + route)
-    if (route && route.length >= 2) {
-      setNodePair(route[0], route[1]);
-    }
-    console.log("Node pair: " + nodePair)
-  }, [route]);
+    console.log(route);
+    const fetchImageUrls = async () => {
+      if (route && route.length >= 2) {
+        const urls = [];
+        for (let i = 0; i < route.length - 1; i++) {
+          try {
+            const response = await getDirectionPhoto(route[i], route[i + 1]);
+            urls.push(response.imgUrl); // Add the image URL to the array
+          } catch (err) {
+            console.error(`Failed to fetch image for nodes ${route[i]} and ${route[i + 1]}:`, err);
+          }
+        }
+        setImgUrls(urls); // Update the state with the fetched URLs
+      }
+    };
 
-  const getImageUrl = async () => {
-    if (nodePair[0] !== null && nodePair[1] !== null) {
-      const response = await getDirectionPhoto(nodePair[0], nodePair[1]);
-      return response;
-    } else {
-      console.error("Invalid nodePair: ", nodePair);
-    }
-  };
+    fetchImageUrls();
+  }, [route]);
 
   return (
     <div className="user-view-container">
+      <h1>Direction Photos</h1>
       <div className="carousel-container" data-testid="carousel-container">
         <Swiper
           direction="horizontal"
@@ -44,22 +48,22 @@ function UserView() {
           spaceBetween={10}
           slidesPerView={1}
         >
-          {/* {steps.map((step) => (
-            <SwiperSlide key={step.id}>
+          {imgUrls.map((url, index) => (
+            <SwiperSlide key={index}>
               <div className="step-content">
                 <img
-                  src={step.image}
-                  alt={`Step ${step.id}`}
+                  src={url}
+                  alt={`Step ${index + 1}`}
                   className="step-image"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "/fallback.png";
+                    e.target.src = "/fallback.png"; // Fallback image in case of error
                   }}
                 />
-                <p className="step-instruction">{step.instruction}</p>
+                <p className="step-instruction">Step {index + 1}</p>
               </div>
             </SwiperSlide>
-          ))} */}
+          ))}
           <div
             className="swiper-button-next"
             data-testid="swiper-button-next"
