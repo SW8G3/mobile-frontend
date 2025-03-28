@@ -115,7 +115,14 @@ function SearchPage() {
           ))}
         </ul>
       )}
-      <button onClick={handleSearch}>Search Route</button>
+      <button
+        onClick={() => {
+          handleSearch();
+          window.location.href = "/navigation"; // Navigate to the route
+        }}
+      >
+        Search Route
+      </button>
 
       {route && (
         <div>
