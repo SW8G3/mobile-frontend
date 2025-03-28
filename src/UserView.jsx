@@ -28,13 +28,7 @@ function UserView() {
 
   return (
     <div className="user-view-container">
-      <h1 className="guide-title">Wayfinder Guide</h1>
-      {!started ? (
-        <button className="start-button" onClick={() => setStarted(true)}>
-          Start Guide
-        </button>
-      ) : (
-        <div className="carousel-container">
+        <div className="carousel-container" data-testid="carousel-container">
           <Swiper
             direction="horizontal"
             modules={[Navigation, Pagination]}
@@ -62,13 +56,12 @@ function UserView() {
                 </div>
               </SwiperSlide>
             ))}
-            <div className="swiper-button-next"></div>
-            <div className="swiper-button-prev"></div>
+            <div className="swiper-button-next" data-testid="swiper-button-next"></div>
+            <div className="swiper-button-prev" data-testid="swiper-button-prev"></div>
           </Swiper>
         </div>
-      )}
+      )
     </div>
-  );
-}
+  );}
 
 export default UserView;
