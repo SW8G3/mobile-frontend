@@ -2,22 +2,25 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { searchWithTag, getRoute } from "../API/NavigationAPI";
+import { useRoute } from "../RouteContext";
 
 function DestinationSelection() {
   const [fromString, setFromString] = useState("");
   const [toString, setToString] = useState("");
   const [from, setFrom] = useState(0);
   const [to, setTo] = useState(0);
-  const [route, setRoute] = useState(null);
   const [error, setError] = useState(null);
   const [fromSuggestions, setFromSuggestions] = useState([]); // State for dropdown suggestions
   const [toSuggestions, setToSuggestions] = useState([]); // State for dropdown suggestions
+  const { setRoute } = useRoute();
+  const navigate = useNavigate();
 
   const handleSearch = async () => {
     try {
       const result = await getRoute(from, to);
-      setRoute(result);
+      setRoute(result.route);
       setError(null); // Clear any previous errors
+      navigate("/user");
     } catch (err) {
       setError("Failed to fetch route. Please try again.");
       setRoute(null); // Clear previous route data
@@ -35,7 +38,6 @@ function DestinationSelection() {
 
     try {
       const response = await searchWithTag(value);
-      console.log("Suggestions:", response.nodes);
       setFromSuggestions(response.nodes || []); // Update suggestions
     } catch (err) {
       console.error("Error fetching suggestions:", err);
@@ -54,7 +56,6 @@ function DestinationSelection() {
 
     try {
       const response = await searchWithTag(value);
-      console.log("Suggestions:", response.nodes);
       setToSuggestions(response.nodes || []); // Update suggestions
     } catch (err) {
       console.error("Error fetching suggestions:", err);
@@ -132,19 +133,10 @@ function DestinationSelection() {
         style={styles.button}
         onClick={() => {
           handleSearch();
-          {
-            /*window.location.href = "/user";*/
-          }
         }}
       >
         Find
       </button>
-      {route && (
-        <div>
-          <h3>Route Details:</h3>
-          <pre>{JSON.stringify(route, null, 2)}</pre>
-        </div>
-      )}
       {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
