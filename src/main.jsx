@@ -14,10 +14,10 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
     <Routes>
-      // <Route path="/" element={<SearchPage />} />
+      {/* } <Route path="/" element={<SearchPage />} />
       // <Route path="/navigation" element={<NavigationView />} /> same as UserView
       // <Route path="/directions" element={<UserView />} /> {/* Admin View */}
-      <Route path="/startpage" element={<Navigation />} /> {/* Navigation View */}
+      <Route path="/" element={<Navigation />} /> {/* Navigation View */}
       <Route path="/admin" element={<App />} /> {/* Admin View */}
       <Route path="/destination" element={<DestinationSelection />} /> {/* Destination Selection View */}
       <Route path="/user" element={<UserView />} /> {/* User View */}
