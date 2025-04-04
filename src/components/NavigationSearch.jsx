@@ -3,8 +3,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { searchWithTag, getRoute } from "../API/NavigationAPI";
 import { useRoute } from "../RouteContext";
+import { FaArrowLeft } from "react-icons/fa"; // Import an icon from react-icons
 
-function DestinationSelection() {
+function NavigationSearch() {
   const [fromString, setFromString] = useState("");
   const [toString, setToString] = useState("");
   const [from, setFrom] = useState(0);
@@ -20,7 +21,7 @@ function DestinationSelection() {
       const result = await getRoute(from, to);
       setRoute(result.route);
       setError(null); // Clear any previous errors
-      navigate("/user");
+      navigate("/directions");
     } catch (err) {
       setError("Failed to fetch route. Please try again.");
       setRoute(null); // Clear previous route data
@@ -65,6 +66,14 @@ function DestinationSelection() {
 
   return (
     <div style={styles.container}>
+      {/* Go Back Button */}
+      <button
+        style={styles.goBackButton}
+        onClick={() => navigate(-1)} // Navigate to the previous page
+      >
+        <FaArrowLeft style={{ marginRight: "5px" }} /> Go Back
+      </button>
+
       <h2 style={styles.sectionTitle}>From:</h2>
       <input
         type="text"
@@ -141,6 +150,7 @@ function DestinationSelection() {
     </div>
   );
 }
+
 const styles = {
   container: {
     display: "flex",
@@ -151,15 +161,22 @@ const styles = {
     backgroundColor: "#f5f5f5",
     height: "100vh",
   },
+  goBackButton: {
+    display: "flex",
+    alignItems: "center",
+    padding: "10px 20px",
+    fontSize: "1rem",
+    backgroundColor: "#6c757d",
+    color: "white",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    marginBottom: "20px",
+  },
   sectionTitle: {
     fontSize: "1.5rem",
     color: "#333",
     marginBottom: "10px",
-  },
-  sectionText: {
-    fontSize: "1.2rem",
-    color: "#555",
-    marginBottom: "20px",
   },
   input: {
     padding: "10px",
@@ -179,19 +196,6 @@ const styles = {
     cursor: "pointer",
     marginBottom: "20px",
   },
-  actions: {
-    display: "flex",
-    gap: "10px",
-  },
-  actionButton: {
-    padding: "10px 20px",
-    fontSize: "1rem",
-    backgroundColor: "#ff4d4d",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-  },
 };
 
-export default DestinationSelection;
+export default NavigationSearch;

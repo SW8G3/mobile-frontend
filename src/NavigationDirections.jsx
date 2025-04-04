@@ -7,14 +7,15 @@ import "swiper/css/pagination";
 import "./UserStyle.css";
 import { useRoute } from "./RouteContext";
 import { getDirectionPhoto } from "./API/NavigationAPI";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { FaArrowLeft } from "react-icons/fa"; // Import an icon from react-icons
 
-function UserView() {
+function NavigationDirections() {
   const { route } = useRoute();
-  console.log("Context is here: " + route);
   const [imgUrls, setImgUrls] = useState([]);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
-    console.log(route);
     const fetchImageUrls = async () => {
       if (route && route.length >= 2) {
         const urls = [];
@@ -35,6 +36,14 @@ function UserView() {
 
   return (
     <div className="user-view-container">
+      {/* Go Back Button */}
+      <button
+        className="go-back-button"
+        onClick={() => navigate(-1)} // Navigate to the previous page
+      >
+        <FaArrowLeft style={{ marginRight: "5px" }} /> Go Back
+      </button>
+
       <h1>Direction Photos</h1>
       <div className="carousel-container" data-testid="carousel-container">
         <Swiper
@@ -78,4 +87,4 @@ function UserView() {
   );
 }
 
-export default UserView;
+export default NavigationDirections;

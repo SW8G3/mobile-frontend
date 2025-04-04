@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
-export default function Navigation() {
+export default function StartPage() {
   const navigate = useNavigate();
   
   return (
@@ -17,15 +17,15 @@ export default function Navigation() {
         fontSize: 'large',
         marginBottom: '20px'
       }}>
-        <p><strong>1. Start Navigation:</strong> Click the "Navigation" button to begin your journey.</p>
+        <p><strong>1. Start StartPage:</strong> Click the "StartPage" button to begin your journey.</p>
         <p><strong>2. Set Your Destination:</strong> Tell us where you need to go - you can type a location or scan a QR code.</p>
         <p><strong>3. Follow the Guide:</strong> We'll show you step-by-step directions with pictures of key landmarks.</p>
         <p><strong>4. Reach Your Goal:</strong> The app will guide you right to your destination.</p>
       </div>
       
       <div style={styles.buttonGroup}>
-        <Link to="/admin" style={styles.button}>
-          Admin
+        <Link to="/login" style={styles.button}>
+          Admin log-in
         </Link>
         <Link to="/about" style={styles.button}>
           About
