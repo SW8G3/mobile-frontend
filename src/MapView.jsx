@@ -2,9 +2,9 @@ import { useState } from "react";
 import { MapContainer, ImageOverlay, Marker, Popup, Polyline, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import "./App.css";
+import "./MapView.css";
 
-function App() {
+function MapView() {
   const bounds = [
     [0, 0],
     [1654, 2339], // Adjust based on floor plan image dimensions (height x width)
@@ -142,4 +142,4 @@ function App() {
   );
 }
 
-export default App;
+export default MapView;

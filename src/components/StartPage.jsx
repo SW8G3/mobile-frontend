@@ -17,7 +17,7 @@ export default function StartPage() {
         fontSize: 'large',
         marginBottom: '20px'
       }}>
-        <p><strong>1. Start StartPage:</strong> Click the "StartPage" button to begin your journey.</p>
+        <p><strong>1. StartPage:</strong> Click the "StartPage" button to begin your journey.</p>
         <p><strong>2. Set Your Destination:</strong> Tell us where you need to go - you can type a location or scan a QR code.</p>
         <p><strong>3. Follow the Guide:</strong> We'll show you step-by-step directions with pictures of key landmarks.</p>
         <p><strong>4. Reach Your Goal:</strong> The app will guide you right to your destination.</p>
