@@ -1,11 +1,11 @@
-import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { searchWithTag, getRoute } from "../API/NavigationAPI";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { searchWithTag, getNodeFromId, getRoute } from "../API/NavigationAPI";
 import { useRoute } from "../RouteContext";
 import { FaArrowLeft } from "react-icons/fa"; // Import an icon from react-icons
 
 function NavigationSearch() {
+  const { nodeId } = useParams();
   const [fromString, setFromString] = useState("");
   const [toString, setToString] = useState("");
   const [from, setFrom] = useState(0);
@@ -15,6 +15,34 @@ function NavigationSearch() {
   const [toSuggestions, setToSuggestions] = useState([]); // State for dropdown suggestions
   const { setRoute } = useRoute();
   const navigate = useNavigate();
+
+  // Set the "from" field based on the URL parameter and call handleFromChange
+  useEffect(() => {
+    const fetchFromNode = async () => {
+      if (nodeId) {
+        setFrom(parseInt(nodeId, 10)); // Set the "from" node ID
+        setFromString(`${nodeId}`); // Optionally set a display value
+
+        try {
+          const response = await getNodeFromId(parseInt(nodeId)); // Call searchWithTag with nodeId
+          console.log("Node id is: ", nodeId);
+          console.log("Response from searchWithTag: ", response);
+          if (response.node) {
+            const node = response.node;
+            setFrom(node.id); // Set the "from" node ID
+            setFromString(node.searchTags[0]); // Set the display value
+          } else {
+            setError("No matching nodes found for the given nodeId.");
+          }
+        } catch (err) {
+          console.error("Error fetching node data:", err);
+          setError("Failed to fetch node data. Please try again.");
+        }
+      }
+    };
+
+    fetchFromNode();
+  }, [nodeId]);
 
   const handleSearch = async () => {
     try {

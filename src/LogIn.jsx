@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
+import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
 
 const SignIn = () => {
     const [username, setUsername] = useState('');
@@ -34,7 +35,26 @@ const SignIn = () => {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh' }}>
+            {/* Go Back Button */}
+            <button
+                onClick={() => navigate(-1)} // Navigate to the previous page
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '10px 20px',
+                    fontSize: '1rem',
+                    backgroundColor: '#6c757d',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    marginBottom: '20px',
+                }}
+            >
+                <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
+            </button>
+
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
                 <h2>Sign In</h2>
                 {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}

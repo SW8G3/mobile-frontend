@@ -22,7 +22,7 @@ createRoot(document.getElementById("root")).render(
           {/*} <Route path="/directions" element={<NavigationDirections />} /> {/* Admin View */}
           <Route path="/" element={<StartPage />} /> {/* Navigation View */}
           <Route path="/admin" element={<App />} /> {/* Admin View */}
-          <Route path="/destination" element={<NavigationSearch />} />{" "}
+          <Route path="/destination/node/:nodeId" element={<NavigationSearch />} />{" "}
           {/* Destination Selection View */}
           <Route path="/directions" element={<NavigationDirections />} /> User View
           <Route path="/about" element={< AboutPage />} />

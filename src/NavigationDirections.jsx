@@ -24,7 +24,12 @@ function NavigationDirections() {
             const response = await getDirectionPhoto(route[i], route[i + 1]);
             urls.push(response.imgUrl); // Add the image URL to the array
           } catch (err) {
-            console.error(`Failed to fetch image for nodes ${route[i]} and ${route[i + 1]}:`, err);
+            console.error(
+              `Failed to fetch image for nodes ${route[i]} and ${
+                route[i + 1]
+              }:`,
+              err
+            );
           }
         }
         setImgUrls(urls); // Update the state with the fetched URLs
@@ -42,6 +47,25 @@ function NavigationDirections() {
         onClick={() => navigate(-1)} // Navigate to the previous page
       >
         <FaArrowLeft style={{ marginRight: "5px" }} /> Go Back
+      </button>
+
+      <button
+        className="go-home-button"
+        onClick={() => navigate("/")} // Navigate to the root path
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "10px 20px",
+          fontSize: "1rem",
+          backgroundColor: "#007BFF",
+          color: "white",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          marginBottom: "20px",
+        }}
+      >
+        Go to Home
       </button>
 
       <h1>Direction Photos</h1>

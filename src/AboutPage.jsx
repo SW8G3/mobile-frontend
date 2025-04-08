@@ -1,8 +1,31 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
 
 const AboutPage = () => {
+    const navigate = useNavigate(); // Initialize useNavigate
+
     return (
         <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+            {/* Go Back Button */}
+            <button
+                onClick={() => navigate(-1)} // Navigate to the previous page
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '10px 20px',
+                    fontSize: '1rem',
+                    backgroundColor: '#6c757d',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    marginBottom: '20px',
+                }}
+            >
+                <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
+            </button>
+
             <h1>About This Project</h1>
             <p>
                 This project was created to solve a common problem and provide a better solution for users. 
