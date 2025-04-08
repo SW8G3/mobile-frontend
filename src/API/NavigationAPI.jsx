@@ -17,6 +17,19 @@ const searchWithTag = async (searchTag) => {
     }
 }
 
+const getNodeFromId = async (nodeId) => {
+    try {
+        const data = {
+            nodeId,
+        };
+        const response = await api.post("/graph/node", data);
+        return response.data;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
+
 // src = source, dst = destination
 const getRoute = async (src, dst) => {
     try {
@@ -46,4 +59,4 @@ const getDirectionPhoto = async (src, dst) => {
     }
 }
 
-export { searchWithTag, getRoute, getDirectionPhoto };
+export { searchWithTag, getNodeFromId, getRoute, getDirectionPhoto };
