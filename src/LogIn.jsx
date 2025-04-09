@@ -1,19 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
 import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
 
 const LogIn = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(''); // State to store error messages
+    const [message, setMessage] = useState(''); // State to store error messages
+    const [msgColor, setMsgColor] = useState(''); // State to store message color
     const navigate = useNavigate(); // Initialize useNavigate
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            navigate('/admin'); // Redirect to /admin
+        }
+    }, [navigate]);
+
+    const registerUser = async (e) => {
+        e.preventDefault();
+        setMessage(''); // Clear any previous error messages
+        setMsgColor(''); // Clear message color
+
+        try {
+            const response = await fetch(`${import.meta.env.VITE_ADMIN_API_URL}/login/register`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                setMessage(errorData.message || 'Registration failed. Please try again.');
+                setMsgColor('red'); // Set message color to red for error
+            } else {
+                setMessage('Registration successful! You can now log in.'); // Set confirmation message
+                setMsgColor('green'); // Set message color to green for success
+                setUsername(''); // Clear username field
+                setPassword(''); // Clear password field
+            }
+        } catch (err) {
+            setMessage('An error occurred. Please try again later.');
+            setMsgColor('red'); // Set message color to red for error
+        }
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(''); // Clear any previous error messages
+        setMessage(''); // Clear any previous error messages
+        setMsgColor(''); // Clear message color
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_ADMIN_API_URL}/login`, {
+            const response = await fetch(`${import.meta.env.VITE_ADMIN_API_URL}/login/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,10 +67,12 @@ const LogIn = () => {
                 navigate('/admin'); // Redirect to /admin
             } else {
                 const errorData = await response.json();
-                setError(errorData.message || 'Login failed. Please try again.');
+                setMessage(errorData.message || 'Login failed. Please try again.');
+                setMsgColor('red'); // Set message color to red for error
             }
         } catch (err) {
-            setError('An error occurred. Please try again later.');
+            setMessage('An error occurred. Please try again later.');
+            setMsgColor('red'); // Set message color to red for error
         }
     };
 
@@ -57,7 +99,7 @@ const LogIn = () => {
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
                 <h2>Log In</h2>
-                {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
+                {message && <p style={{ color: msgColor }}>{message}</p>} {/* Display error message */}
                 <label htmlFor="username">Username</label>
                 <input
                     type="text"
@@ -76,8 +118,15 @@ const LogIn = () => {
                     required
                     style={{ marginBottom: '20px', padding: '8px' }}
                 />
-                <button type="submit" style={{ padding: '10px', backgroundColor: '#007BFF', color: 'white', border: 'none', borderRadius: '4px' }}>
+                <button type="submit" style={{ padding: '10px', backgroundColor: '#007BFF', color: 'white', border: 'none', borderRadius: '4px', marginBottom: '10px' }}>
                     Sign In
+                </button>
+                <button
+                    type="button"
+                    onClick={registerUser}
+                    style={{ padding: '10px', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px' }}
+                >
+                    Register
                 </button>
             </form>
         </div>
