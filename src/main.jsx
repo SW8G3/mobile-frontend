@@ -9,6 +9,7 @@ import NavigationDirections from "./NavigationDirections.jsx";
 import { RouteProvider } from "./RouteContext.jsx";
 import AboutPage from "./AboutPage.jsx"
 import LogIn from "./LogIn.jsx";
+import QrScan from "./QrScan.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<StartPage />} /> {/* Navigation View */}
           <Route path="/map-view" element={<MapView />} /> {/* Admin View */}
+          <Route path="/qr-scan" element={<QrScan />} />
           <Route path="/destination/node/:nodeId" element={<NavigationSearch />} />{" "}
           <Route path="/destination" element={<NavigationSearch />} />{" "}
           <Route path="/directions" element={<NavigationDirections />} /> User View
