@@ -25,7 +25,7 @@ export default function StartPage() {
       
       <div style={styles.buttonGroup}>
         <Link to="/login" style={styles.button}>
-          Admin log-in
+          Admin log in
         </Link>
         <Link to="/about" style={styles.button}>
           About

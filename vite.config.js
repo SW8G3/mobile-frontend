@@ -12,6 +12,7 @@ export default defineConfig({
   },
   define: {
     VITE_API_URL: JSON.stringify(process.env.VITE_API_URL),
+    VITE_ADMIN_API_URL: JSON.stringify(process.env.VITE_ADMIN_API_URL),
     VITE_PORT: JSON.stringify(process.env.VITE_PORT),
   }
 });

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
 import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
 
-const SignIn = () => {
+const LogIn = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(''); // State to store error messages
@@ -13,7 +13,7 @@ const SignIn = () => {
         setError(''); // Clear any previous error messages
 
         try {
-            const response = await fetch('/login', {
+            const response = await fetch(`${import.meta.env.VITE_ADMIN_API_URL}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const SignIn = () => {
             </button>
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
-                <h2>Sign In</h2>
+                <h2>Log In</h2>
                 {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
                 <label htmlFor="username">Username</label>
                 <input
@@ -84,4 +84,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default LogIn;
