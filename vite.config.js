@@ -11,7 +11,7 @@ export default defineConfig({
   server: {
     https: true,
     host: true,
-    port: process.env.VITE_PORT || 5173,
+    port: process.env.VITE_PORT || 5173
   },
   define: {
     VITE_API_URL: JSON.stringify(process.env.VITE_API_URL),
