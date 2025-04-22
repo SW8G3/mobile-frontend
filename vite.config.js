@@ -17,7 +17,15 @@ export default defineConfig({
       cert: fs.readFileSync(path.resolve(__dirname, 'ssl/cert.pem')),
     },
     host: true,
-    port: process.env.VITE_PORT || 5173
+    port: process.env.VITE_PORT || 5173,
+
+    proxy: {
+      '/graph': {
+        target: 'https://10.92.0.113:3002', // your backend
+        changeOrigin: true,
+        secure: false, // allow self-signed certs
+      },
+    },
   },
   define: {
     VITE_API_URL: JSON.stringify(process.env.VITE_API_URL),
