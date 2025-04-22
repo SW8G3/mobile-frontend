@@ -3,13 +3,17 @@ import react from '@vitejs/plugin-react';
 import dotenv from 'dotenv';
 import mkcert from 'vite-plugin-mkcert';
 
+
 dotenv.config();
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), mkcert()],
+  plugins: [react(), mkcert(),],
   server: {
-    https: true,
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'ssl/key.pem')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'ssl/cert.pem')),
+    },
     host: true,
     port: process.env.VITE_PORT || 5173
   },
