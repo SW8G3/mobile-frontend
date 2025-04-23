@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
 import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
 
@@ -31,6 +31,7 @@ const SignIn = () => {
             }
         } catch (err) {
             setError('An error occurred. Please try again later.');
+            console.error('Error during login:', err);
         }
     };
 
