@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const api = axios.create({
     baseURL: '/graph'
@@ -28,7 +28,7 @@ const getNodeFromId = async (nodeId) => {
         console.error(err);
         throw err;
     }
-}
+};
 
 // src = source, dst = destination
 const getRoute = async (src, dst) => {
@@ -57,6 +57,6 @@ const getDirectionPhoto = async (src, dst) => {
         console.error(err);
         throw err;
     }
-}
+};
 
 export { searchWithTag, getNodeFromId, getRoute, getDirectionPhoto };
