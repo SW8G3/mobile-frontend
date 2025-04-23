@@ -6,7 +6,7 @@ export default function StartPage() {
 
   return (
     <div style={styles.container}>
-      <div>
+      <div style={styles.buttonGroup}>
         <Link to="/destination" style={styles.title}>
           Navigation
         </Link>
@@ -58,28 +58,37 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    padding: "20px",
+    padding: "5%",
     backgroundColor: "#f5f5f5",
-    height: "100vh",
-    width: "100vw",
+    minHeight: "100vh",
+    width: "100%",
+    boxSizing: "border-box",
   },
   buttonGroup: {
     display: "flex",
-    gap: "20px",
+    flexWrap: "wrap", // Allows buttons to wrap on smaller screens
+    gap: "1rem", // Use relative units for spacing
+    justifyContent: "center",
   },
   button: {
-    padding: "15px 30px",
+    padding: "0.8rem 1.5rem", // Use relative units for padding
     backgroundColor: "#007bff",
     color: "white",
     textDecoration: "none",
-    borderRadius: "5px",
+    borderRadius: "0.5rem", // Use relative units for border radius
+    fontSize: "1rem", // Scales with the root font size
+    textAlign: "center",
+    transition: "background-color 0.3s ease",
   },
   title: {
-    padding: "15px 30px",
+    padding: "0.8rem 1.5rem", // Use relative units for padding
     backgroundColor: "#007bff",
     color: "white",
     textDecoration: "none",
-    borderRadius: "5px",
-    margin: "20px 0",
+    borderRadius: "0.5rem", // Use relative units for border radius
+    fontSize: "1rem", // Scales with the root font size
+    textAlign: "center",
+    margin: "1rem 0", // Add spacing between titles
+    transition: "background-color 0.3s ease",
   },
 };

@@ -50,6 +50,7 @@ const SignIn = () => {
                     borderRadius: '5px',
                     cursor: 'pointer',
                     marginBottom: '20px',
+                    marginTop: '20px',
                 }}
             >
                 <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
