@@ -10,6 +10,7 @@ import { RouteProvider } from "./RouteContext.jsx";
 import AboutPage from "./AboutPage.jsx"
 import LogIn from "./LogIn.jsx";
 import QrScan from "./QrScan.jsx";
+import AdminPage from "./AdminPage.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/directions" element={<NavigationDirections />} /> User View
           <Route path="/about" element={< AboutPage />} />
           <Route path="/login" element={< LogIn />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </BrowserRouter>
     </RouteProvider>
