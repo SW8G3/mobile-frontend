@@ -1,8 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
-import React from "react";
+import { Link } from 'react-router-dom';
 
 export default function StartPage() {
-  const navigate = useNavigate();
+
 
   return (
     <div style={styles.container}>
@@ -17,13 +16,13 @@ export default function StartPage() {
 
       <div
         style={{
-          color: "black",
-          fontSize: "large",
-          marginBottom: "20px",
+          color: 'black',
+          fontSize: 'large',
+          marginBottom: '20px',
         }}
       >
         <p>
-          <strong>1. StartPage:</strong> Click the "StartPage" button to begin
+          <strong>1. StartPage:</strong> Click the &quot;StartPage&quot; button to begin
           your journey.
         </p>
         <p>
@@ -31,7 +30,7 @@ export default function StartPage() {
           - you can type a location or scan a QR code.
         </p>
         <p>
-          <strong>3. Follow the Guide:</strong> We'll show you step-by-step
+          <strong>3. Follow the Guide:</strong> We&apos;ll show you step-by-step
           directions with pictures of key landmarks.
         </p>
         <p>
@@ -54,32 +53,32 @@ export default function StartPage() {
 
 const styles = {
   container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    height: "100vh",
-    width: "100vw",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '20px',
+    backgroundColor: '#f5f5f5',
+    height: '100vh',
+    width: '100vw',
   },
   buttonGroup: {
-    display: "flex",
-    gap: "20px",
+    display: 'flex',
+    gap: '20px',
   },
   button: {
-    padding: "15px 30px",
-    backgroundColor: "#007bff",
-    color: "white",
-    textDecoration: "none",
-    borderRadius: "5px",
+    padding: '15px 30px',
+    backgroundColor: '#007bff',
+    color: 'white',
+    textDecoration: 'none',
+    borderRadius: '5px',
   },
   title: {
-    padding: "15px 30px",
-    backgroundColor: "#007bff",
-    color: "white",
-    textDecoration: "none",
-    borderRadius: "5px",
-    margin: "20px 0",
+    padding: '15px 30px',
+    backgroundColor: '#007bff',
+    color: 'white',
+    textDecoration: 'none',
+    borderRadius: '5px',
+    margin: '20px 0',
   },
 };
