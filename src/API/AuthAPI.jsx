@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "/auth",
+  baseURL: '/auth',
 });
 
 const registerUser = async (username, password) => {
@@ -10,10 +10,10 @@ const registerUser = async (username, password) => {
       username,
       password,
     };
-    const response = await api.post("/register", data);
+    const response = await api.post('/register', data);
     return response.data;
   } catch (err) {
-    console.error("Error during user registration:", err);
+    console.error('Error during user registration:', err);
     throw err;
   }
 };
@@ -24,10 +24,10 @@ const loginUser = async (username, password) => {
       username,
       password,
     };
-    const response = await api.post("/login", data);
+    const response = await api.post('/login', data);
     return response.data;
   } catch (err) {
-    console.error("Error during user login:", err);
+    console.error('Error during user login:', err);
     throw err;
   }
 };
