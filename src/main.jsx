@@ -1,15 +1,16 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './index.css';
-import MapView from './MapView.jsx';
-import StartPage from './components/StartPage.jsx';
-import NavigationSearch from './components/NavigationSearch.jsx';
-import NavigationDirections from './NavigationDirections.jsx';
-import { RouteProvider } from './RouteContext.jsx';
-import AboutPage from './AboutPage.jsx';
-import LogIn from './LogIn.jsx';
-import QrScan from './QrScan.jsx';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./index.css";
+import MapView from "./MapView.jsx";
+import StartPage from "./components/StartPage.jsx";
+import NavigationSearch from "./components/NavigationSearch.jsx";
+import NavigationDirections from "./NavigationDirections.jsx";
+import { RouteProvider } from "./RouteContext.jsx";
+import AboutPage from "./AboutPage.jsx"
+import LogIn from "./LogIn.jsx";
+import QrScan from "./QrScan.jsx";
+import AdminPage from "./AdminPage.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/directions" element={<NavigationDirections />} /> User View
           <Route path="/about" element={< AboutPage />} />
           <Route path="/login" element={< LogIn />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </BrowserRouter>
     </RouteProvider>
