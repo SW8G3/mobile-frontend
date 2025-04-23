@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { BrowserQRCodeReader } from "@zxing/browser";
 import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from 'react-icons/fa';
 
 const QrScan = () => {
   const videoRef = useRef(null);
@@ -40,6 +41,12 @@ const QrScan = () => {
 
   return (
     <div style={styles.container}>
+      <button
+        style={styles.goBackButton}
+        onClick={() => navigate(-1)} // Navigate to the previous page
+      >
+        <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
+      </button>
       <h1 style={styles.title}>Scan QR Code</h1>
       <div style={styles.qrContainer}>
         <video ref={videoRef} style={styles.qrReader}></video>
@@ -92,6 +99,19 @@ const styles = {
     borderRadius: "5px",
     cursor: "pointer",
   },
+  goBackButton: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '10px 20px',
+    fontSize: '1rem',
+    backgroundColor: '#6c757d',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    marginBottom: '20px',
+    marginTop: '20px',
+  }
 };
 
 export default QrScan;
