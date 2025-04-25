@@ -22,6 +22,7 @@ function NavigationDirections() {
         for (let i = 0; i < route.length - 1; i++) {
           try {
             const response = await getDirectionPhoto(route[i], route[i + 1]);
+            console.log(response);
             urls.push(response.imgUrl); // Add the image URL to the array
           } catch (err) {
             console.error(
