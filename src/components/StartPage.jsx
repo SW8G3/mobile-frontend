@@ -1,8 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
-import React from "react";
+import { Link } from 'react-router-dom';
 
 export default function StartPage() {
-  const navigate = useNavigate();
+
 
   return (
     <div style={styles.container}>
@@ -17,13 +16,13 @@ export default function StartPage() {
 
       <div
         style={{
-          color: "black",
-          fontSize: "large",
-          marginBottom: "20px",
+          color: 'black',
+          fontSize: 'large',
+          marginBottom: '20px',
         }}
       >
         <p>
-          <strong>1. StartPage:</strong> Click the "StartPage" button to begin
+          <strong>1. StartPage:</strong> Click the &quot;StartPage&quot; button to begin
           your journey.
         </p>
         <p>
@@ -31,7 +30,7 @@ export default function StartPage() {
           - you can type a location or scan a QR code.
         </p>
         <p>
-          <strong>3. Follow the Guide:</strong> We'll show you step-by-step
+          <strong>3. Follow the Guide:</strong> We&apos;ll show you step-by-step
           directions with pictures of key landmarks.
         </p>
         <p>
@@ -42,7 +41,7 @@ export default function StartPage() {
 
       <div style={styles.buttonGroup}>
         <Link to="/login" style={styles.button}>
-          Admin log-in
+          Admin log in
         </Link>
         <Link to="/about" style={styles.button}>
           About
@@ -90,5 +89,6 @@ const styles = {
     textAlign: "center",
     margin: "1rem 0", // Add spacing between titles
     transition: "background-color 0.3s ease",
+
   },
 };

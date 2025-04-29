@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { MapContainer, ImageOverlay, Marker, Popup, Polyline, useMapEvents } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-import "./MapView.css";
+import { useState } from 'react';
+import { MapContainer, ImageOverlay, Marker, Popup, Polyline, useMapEvents } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import './MapView.css';
 
 function MapView() {
   const bounds = [
@@ -20,7 +20,7 @@ function MapView() {
     useMapEvents({
       click: (e) => {
         // Prevent node creation if clicking an edge or button
-        if (e.originalEvent.target.tagName === "BUTTON" || e.originalEvent.target.classList.contains("edge-click-area")) {
+        if (e.originalEvent.target.tagName === 'BUTTON' || e.originalEvent.target.classList.contains('edge-click-area')) {
           return;
         }
         const newNode = { id: nodes.length + 1, position: [e.latlng.lat, e.latlng.lng] };
@@ -81,7 +81,7 @@ function MapView() {
   return (
     <>
       <div className="map-container">
-        <MapContainer style={{ width: "100%", height: "100%" }} bounds={bounds} crs={L.CRS.Simple}>
+        <MapContainer style={{ width: '100%', height: '100%' }} bounds={bounds} crs={L.CRS.Simple}>
           <ImageOverlay url="/2sal.png" bounds={bounds} />
 
           {/* Handle Clicks to Add Nodes */}
@@ -116,11 +116,11 @@ function MapView() {
               <Polyline
                 key={index}
                 positions={[fromPos, toPos]}
-                color={selectedEdge === index ? "red" : "blue"} // Highlight selected edge
+                color={selectedEdge === index ? 'red' : 'blue'} // Highlight selected edge
                 eventHandlers={{
                   click: (e) => {
                     e.originalEvent.stopPropagation(); // Stop map click event
-                    console.log("Edge clicked", index);
+                    console.log('Edge clicked', index);
                     setSelectedEdge(index);
                   },
                 }}

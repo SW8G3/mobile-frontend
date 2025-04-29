@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "./UserStyle.css";
-import { useRoute } from "./RouteContext";
-import { getDirectionPhoto } from "./API/NavigationAPI";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import { FaArrowLeft } from "react-icons/fa"; // Import an icon from react-icons
+import { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import './UserStyle.css';
+import { useRoute } from './RouteContext';
+import { getDirectionPhoto } from './API/NavigationAPI';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
 
 function NavigationDirections() {
   const { route } = useRoute();
@@ -22,6 +22,7 @@ function NavigationDirections() {
         for (let i = 0; i < route.length - 1; i++) {
           try {
             const response = await getDirectionPhoto(route[i], route[i + 1]);
+            console.log(response);
             urls.push(response.imgUrl); // Add the image URL to the array
           } catch (err) {
             console.error(
@@ -46,23 +47,23 @@ function NavigationDirections() {
         className="go-back-button"
         onClick={() => navigate(-1)} // Navigate to the previous page
       >
-        <FaArrowLeft style={{ marginRight: "5px" }} /> Go Back
+        <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
       </button>
 
       <button
         className="go-home-button"
-        onClick={() => navigate("/")} // Navigate to the root path
+        onClick={() => navigate('/')} // Navigate to the root path
         style={{
-          display: "flex",
-          alignItems: "center",
-          padding: "10px 20px",
-          fontSize: "1rem",
-          backgroundColor: "#007BFF",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-          marginBottom: "20px",
+          display: 'flex',
+          alignItems: 'center',
+          padding: '10px 20px',
+          fontSize: '1rem',
+          backgroundColor: '#007BFF',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          marginBottom: '20px',
         }}
       >
         Go to Home
@@ -74,8 +75,8 @@ function NavigationDirections() {
           direction="horizontal"
           modules={[Navigation, Pagination]}
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
           }}
           pagination={{ clickable: true }}
           spaceBetween={10}
@@ -90,7 +91,7 @@ function NavigationDirections() {
                   className="step-image"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "/fallback.png"; // Fallback image in case of error
+                    e.target.src = '/fallback.png'; // Fallback image in case of error
                   }}
                 />
                 <p className="step-instruction">Step {index + 1}</p>

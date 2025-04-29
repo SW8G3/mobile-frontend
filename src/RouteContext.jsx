@@ -1,4 +1,5 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 
 const RouteContext = createContext();
 
@@ -10,6 +11,11 @@ export const RouteProvider = ({ children }) => {
       {children}
     </RouteContext.Provider>
   );
+};
+
+// Add PropTypes validation for the children prop
+RouteProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export function useRoute() {
