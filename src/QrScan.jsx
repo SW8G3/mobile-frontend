@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
+import { FaArrowLeft } from 'react-icons/fa';
 import { BrowserQRCodeReader } from '@zxing/browser';
 import { useNavigate } from 'react-router-dom';
+
 
 const QrScan = () => {
   const videoRef = useRef(null);
@@ -40,6 +42,12 @@ const QrScan = () => {
 
   return (
     <div style={styles.container}>
+      <button
+        style={styles.goBackButton}
+        onClick={() => navigate(-1)} // Navigate to the previous page
+      >
+        <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
+      </button>
       <h1 style={styles.title}>Scan QR Code</h1>
       <div style={styles.qrContainer}>
         <video ref={videoRef} style={styles.qrReader}></video>
@@ -60,27 +68,29 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: '100vh',
-    padding: '20px',
+    height: '100vh', // Full viewport height
+    padding: '2rem', // Scalable padding
     backgroundColor: '#f5f5f5',
+    boxSizing: 'border-box', // Ensures padding is included in width/height
   },
   title: {
-    fontSize: '1.5rem',
-    marginBottom: '20px',
+    fontSize: '1.5rem', // Scales with the root font size
+    marginBottom: '1.25rem', // Scalable margin
     color: '#333',
+    textAlign: 'center', // Center-align text for better readability
   },
   qrContainer: {
-    width: '80%',
-    maxWidth: '400px',
-    aspectRatio: '1',
+    width: '80%', // Scales with the container width
+    maxWidth: '25rem', // Converted 400px to rem
+    aspectRatio: '1', // Ensures a square container
     overflow: 'hidden',
-    borderRadius: '10px',
-    border: '2px solid #007BFF',
-    marginBottom: '20px',
+    borderRadius: '0.625rem', // Converted 10px to rem
+    border: '0.125rem solid #007BFF', // Converted 2px to rem
+    marginBottom: '1.25rem', // Scalable margin
   },
   qrReader: {
-    width: '100%',
-    height: '100%',
+    width: '100%', // Ensures the QR reader scales with the container
+
   },
   manualInputButton: {
     padding: '10px 20px',
@@ -91,6 +101,19 @@ const styles = {
     borderRadius: '5px',
     cursor: 'pointer',
   },
+  goBackButton: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '10px 20px',
+    fontSize: '1rem',
+    backgroundColor: '#6c757d',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    marginBottom: '20px',
+    marginTop: '20px',
+  }
 };
 
 export default QrScan;

@@ -214,6 +214,8 @@ const styles = {
     border: '1px solid #ccc',
     width: '300px',
     marginBottom: '20px',
+    placeholder: 'red',
+
   },
   button: {
     padding: '10px 20px',

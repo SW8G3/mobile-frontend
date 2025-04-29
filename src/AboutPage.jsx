@@ -5,7 +5,8 @@ const AboutPage = () => {
     const navigate = useNavigate(); // Initialize useNavigate
 
     return (
-        <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+        
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh' }}>
             {/* Go Back Button */}
             <button
                 onClick={() => navigate(-1)} // Navigate to the previous page
@@ -20,6 +21,7 @@ const AboutPage = () => {
                     borderRadius: '5px',
                     cursor: 'pointer',
                     marginBottom: '20px',
+                    marginTop: '20px',
                 }}
             >
                 <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
