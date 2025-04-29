@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { BrowserQRCodeReader } from '@zxing/browser';
 import { useNavigate } from 'react-router-dom';
@@ -64,32 +64,32 @@ const QrScan = () => {
 
 const styles = {
   container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-between",
-    height: "100vh", // Full viewport height
-    padding: "2rem", // Scalable padding
-    backgroundColor: "#f5f5f5",
-    boxSizing: "border-box", // Ensures padding is included in width/height
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: '100vh', // Full viewport height
+    padding: '2rem', // Scalable padding
+    backgroundColor: '#f5f5f5',
+    boxSizing: 'border-box', // Ensures padding is included in width/height
   },
   title: {
-    fontSize: "1.5rem", // Scales with the root font size
-    marginBottom: "1.25rem", // Scalable margin
-    color: "#333",
-    textAlign: "center", // Center-align text for better readability
+    fontSize: '1.5rem', // Scales with the root font size
+    marginBottom: '1.25rem', // Scalable margin
+    color: '#333',
+    textAlign: 'center', // Center-align text for better readability
   },
   qrContainer: {
-    width: "80%", // Scales with the container width
-    maxWidth: "25rem", // Converted 400px to rem
-    aspectRatio: "1", // Ensures a square container
-    overflow: "hidden",
-    borderRadius: "0.625rem", // Converted 10px to rem
-    border: "0.125rem solid #007BFF", // Converted 2px to rem
-    marginBottom: "1.25rem", // Scalable margin
+    width: '80%', // Scales with the container width
+    maxWidth: '25rem', // Converted 400px to rem
+    aspectRatio: '1', // Ensures a square container
+    overflow: 'hidden',
+    borderRadius: '0.625rem', // Converted 10px to rem
+    border: '0.125rem solid #007BFF', // Converted 2px to rem
+    marginBottom: '1.25rem', // Scalable margin
   },
   qrReader: {
-    width: "100%", // Ensures the QR reader scales with the container
+    width: '100%', // Ensures the QR reader scales with the container
 
   },
   manualInputButton: {

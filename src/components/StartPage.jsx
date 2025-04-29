@@ -53,42 +53,42 @@ export default function StartPage() {
 
 const styles = {
   container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "5%",
-    backgroundColor: "#f5f5f5",
-    minHeight: "100vh",
-    width: "100%",
-    boxSizing: "border-box",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '5%',
+    backgroundColor: '#f5f5f5',
+    minHeight: '100vh',
+    width: '100%',
+    boxSizing: 'border-box',
   },
   buttonGroup: {
-    display: "flex",
-    flexWrap: "wrap", // Allows buttons to wrap on smaller screens
-    gap: "1rem", // Use relative units for spacing
-    justifyContent: "center",
+    display: 'flex',
+    flexWrap: 'wrap', // Allows buttons to wrap on smaller screens
+    gap: '1rem', // Use relative units for spacing
+    justifyContent: 'center',
   },
   button: {
-    padding: "0.8rem 1.5rem", // Use relative units for padding
-    backgroundColor: "#007bff",
-    color: "white",
-    textDecoration: "none",
-    borderRadius: "0.5rem", // Use relative units for border radius
-    fontSize: "1rem", // Scales with the root font size
-    textAlign: "center",
-    transition: "background-color 0.3s ease",
+    padding: '0.8rem 1.5rem', // Use relative units for padding
+    backgroundColor: '#007bff',
+    color: 'white',
+    textDecoration: 'none',
+    borderRadius: '0.5rem', // Use relative units for border radius
+    fontSize: '1rem', // Scales with the root font size
+    textAlign: 'center',
+    transition: 'background-color 0.3s ease',
   },
   title: {
-    padding: "0.8rem 1.5rem", // Use relative units for padding
-    backgroundColor: "#007bff",
-    color: "white",
-    textDecoration: "none",
-    borderRadius: "0.5rem", // Use relative units for border radius
-    fontSize: "1rem", // Scales with the root font size
-    textAlign: "center",
-    margin: "1rem 0", // Add spacing between titles
-    transition: "background-color 0.3s ease",
+    padding: '0.8rem 1.5rem', // Use relative units for padding
+    backgroundColor: '#007bff',
+    color: 'white',
+    textDecoration: 'none',
+    borderRadius: '0.5rem', // Use relative units for border radius
+    fontSize: '1rem', // Scales with the root font size
+    textAlign: 'center',
+    margin: '1rem 0', // Add spacing between titles
+    transition: 'background-color 0.3s ease',
 
   },
 };

@@ -51,27 +51,6 @@ const LogIn = () => {
   };
 
 
-    return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh' }}>
-            {/* Go Back Button */}
-            <button
-                onClick={() => navigate(-1)} // Navigate to the previous page
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    padding: '10px 20px',
-                    fontSize: '1rem',
-                    backgroundColor: '#6c757d',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    marginBottom: '20px',
-                    marginTop: '20px',
-                }}
-            >
-                <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
-            </button>
 
   return (
     <div
