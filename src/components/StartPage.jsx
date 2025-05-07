@@ -10,9 +10,11 @@ export default function StartPage() {
           <p><strong> or scan the QR code</strong> on the wall</p>
           <Link to="/qr-scan" style={styles.primaryButton}>Scan QR Code</Link>
         </div>
+
         <div style={styles.step}>
           <p><strong>2. Follow the route</strong> using turn-by-turn directions provided on screen.</p>
         </div>
+
         <div style={styles.step}>
           <p><strong>3. Arrive at your destination</strong> by following the guide to the end.</p>
         </div>
@@ -91,6 +93,3 @@ const styles = {
     lineHeight: '50px',
   },
 };
-
-
-

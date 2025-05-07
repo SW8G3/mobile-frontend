@@ -73,12 +73,15 @@ button:focus-visible {
   :root {
     font-size: 14px; /* Reduce base font size for smaller screens */
   }
+
   h1 {
     font-size: 1.8em; /* Further adjust font size for smaller screens */
   }
+
   body {
     padding: 0.5rem; /* Reduce padding for smaller screens */
   }
+
   button {
     font-size: 0.9em; /* Adjust button font size */
     padding: 0.5em 1em; /* Adjust button padding */

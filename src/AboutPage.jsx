@@ -27,6 +27,7 @@ const AboutPage = () => {
                     <FaArrowLeft />
                 </button>
             </div>
+
             <h1>About This Project</h1>
             <p>
                 This project was developed as part of the 8th semester in the Software Engineering Master&apos;s program at Aalborg University Copenhagen.</p>
