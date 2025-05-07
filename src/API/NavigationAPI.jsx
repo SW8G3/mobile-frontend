@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: '/graph'
+    baseURL: `${import.meta.env.VITE_API_URL}/graph`
 });
 
 const searchWithTag = async (searchTag) => {

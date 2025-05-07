@@ -11,6 +11,13 @@
   box-sizing: border-box;
 }
 
+.button-area {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30%;
+  gap: 1rem;
+}
+
 .guide-title {
   font-size: 2rem; 
   color: #333;
@@ -35,35 +42,36 @@
 }
 
 .carousel-container {
-  width: 90%;
-  max-width: 1200px;
-  height: 70vh;
+  width: 100%; /* Full width for mobile */
+  max-width: 600px; /* Limit max width for larger screens */
+  /* height: 70vh; Ensure the container has a fixed height */
   background-color: white;
-  border-radius: 1.25rem;
+  border-radius: 10px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  overflow: visible;
+  overflow: hidden; /* Ensure content fits within the container */
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  padding: 2%;
+  padding: 0; /* Remove padding to avoid extra space */
 }
 
 .step-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem;
+  /* padding: 3rem; */
 }
 
 .step-image {
-  width: 100%;
-  max-height: 50vh;
-  object-fit: cover;
-  border-radius: 1rem;
+  width: 100%; /* Fill the width of the container */
+  height: 100%; /* Fill the height of the container */
+  object-fit: cover; /* Ensure the image scales while maintaining aspect ratio */
+  border-radius: 10px; /* Remove border-radius to align with the container */
 }
 
 .step-instruction {
+  display: none;
   margin-top: 1.5rem;
   font-size: 1.25rem;
   text-align: center;
@@ -79,13 +87,13 @@
 /* Custom Swiper Pagination */
 .swiper-pagination {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: -2rem; /* Move the pagination outside the container */
   left: 50%;
-  z-index: 10;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateX(-50%);
+  transform: translateY(-50%); /* Center the pagination horizontally */
 }
 
 .swiper-pagination-bullet {
@@ -95,6 +103,10 @@
   opacity: 0.5;
   transition: opacity 0.3s ease;
   border-radius: 50%;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
@@ -164,13 +176,13 @@
   }
 
   .carousel-container {
-    height: 60vh;
+    /* height: 60vh; */
     padding: 1.5%;
   }
 
-  .step-content {
+  /* .step-content {
     padding: 2rem;
-  }
+  } */
 
   .step-instruction {
     font-size: 1rem;
@@ -195,13 +207,14 @@
   }
 
   .carousel-container {
-    height: 50vh;
+    /* height: 50vh; */
     padding: 1rem;
+    margin-top: 20%;
   }
 
-  .step-content {
+  /* .step-content {
     padding: 1.5rem;
-  }
+  } */
 
   .step-instruction {
     font-size: 0.9rem;

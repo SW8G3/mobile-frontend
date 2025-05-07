@@ -95,20 +95,30 @@ function NavigationSearch() {
 
   return (
     <div style={styles.container}>
-      {/* Go Back Button */}
-      <button
-        style={styles.goBackButton}
-        onClick={() => navigate(-1)} // Navigate to the previous page
-      >
-        <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
-      </button>
+      {/* Header with Back and Home buttons */}
+      {<div style={styles.header}>
+        <button
+          onClick={() => navigate(-1)}
+          style={styles.backIcon}
+          title="Back"
+        >
+          <FaArrowLeft />
+        </button>
+        {/* <button
+          onClick={() => navigate('/')}
+          style={styles.backIcon}
+          title="Home"
+        >
+          🏠
+        </button> */}
+      </div>}
 
       <h2 style={styles.sectionTitle}>From:</h2>
       <input
         type="text"
         value={fromString}
         onChange={handleFromChange}
-        placeholder="Enter your location"
+        placeholder="current position"
         style={styles.input}
       />
       {fromSuggestions.length > 0 && (
@@ -140,7 +150,7 @@ function NavigationSearch() {
         type="text"
         value={toString}
         onChange={handleToChange}
-        placeholder="Enter your destination"
+        placeholder="wanted position"
         style={styles.input}
       />
       {toSuggestions.length > 0 && (
@@ -167,14 +177,22 @@ function NavigationSearch() {
           ))}
         </ul>
       )}
-      <button
-        style={styles.button}
-        onClick={() => {
-          handleSearch();
-        }}
-      >
-        Find
-      </button>
+      <div style={styles.bottomButtonWrapper}>
+        <div style={styles.buttonsContainer}>
+          <button
+            onClick={handleSearch}
+            style={styles.actionButton}
+          >
+            Find Path
+          </button>
+          <button
+            onClick={() => navigate('/qr-scan')}
+            style={styles.actionButton}
+          >
+            Scan QR Code
+          </button>
+        </div>
+      </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
@@ -190,17 +208,20 @@ const styles = {
     backgroundColor: '#f5f5f5',
     height: '100vh',
   },
-  goBackButton: {
+  header: {
+    width: '100%',
+    maxWidth: '360px',
     display: 'flex',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: '10px 20px',
-    fontSize: '1rem',
-    backgroundColor: '#6c757d',
-    color: 'white',
+    paddingBottom: '1.5rem',
+  },
+  backIcon: {
+    background: 'none',
     border: 'none',
-    borderRadius: '5px',
+    fontSize: '1.5rem',
     cursor: 'pointer',
-    marginBottom: '20px',
+    color: '#333',
   },
   sectionTitle: {
     fontSize: '1.5rem',
@@ -218,14 +239,42 @@ const styles = {
 
   },
   button: {
-    padding: '10px 20px',
+    width: '160px',
+    height: '50px',
     fontSize: '1rem',
+    fontWeight: '500',
     backgroundColor: '#007bff',
     color: 'white',
     border: 'none',
-    borderRadius: '5px',
+    borderRadius: '0.5rem',
     cursor: 'pointer',
-    marginBottom: '20px',
+    textAlign: 'center',
+  },
+  bottomButtonWrapper: {
+    marginTop: '2rem',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  buttonsContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '1rem',
+    width: '100%',
+    maxWidth: '360px',
+  },
+  actionButton: {
+    width: '160px',
+    height: '50px',
+    fontSize: '1rem',
+    fontWeight: '500',
+    backgroundColor: '#007bff',
+    color: 'white',
+    border: 'none',
+    borderRadius: '0.5rem',
+    cursor: 'pointer',
+    textAlign: 'center',
   },
 };
 

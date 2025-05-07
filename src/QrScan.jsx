@@ -42,18 +42,20 @@ const QrScan = () => {
 
   return (
     <div style={styles.container}>
-      <button
-        style={styles.goBackButton}
-        onClick={() => navigate(-1)} // Navigate to the previous page
-      >
-        <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
-      </button>
+      <div style={styles.header}>
+        <button onClick={() => navigate(-1)} style={styles.backIcon} title="Back">
+          <FaArrowLeft />
+        </button>
+        <button onClick={() => navigate('/')} style={styles.backIcon} title="Home">
+          🏠
+        </button>
+      </div>
       <h1 style={styles.title}>Scan QR Code</h1>
       <div style={styles.qrContainer}>
         <video ref={videoRef} style={styles.qrReader}></video>
       </div>
       <button
-        style={styles.manualInputButton}
+        style={styles.actionButton}
         onClick={() => navigate('/destination')}
       >
         Manual Input
@@ -67,11 +69,25 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-between',
     height: '100vh', // Full viewport height
     padding: '2rem', // Scalable padding
     backgroundColor: '#f5f5f5',
     boxSizing: 'border-box', // Ensures padding is included in width/height
+  },
+  header: {
+    width: '100%',
+    maxWidth: '360px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingBottom: '1.5rem',
+  },
+  backIcon: {
+    background: 'none',
+    border: 'none',
+    fontSize: '1.5rem',
+    cursor: 'pointer',
+    color: '#333',
   },
   title: {
     fontSize: '1.5rem', // Scales with the root font size
@@ -92,28 +108,18 @@ const styles = {
     width: '100%', // Ensures the QR reader scales with the container
 
   },
-  manualInputButton: {
-    padding: '10px 20px',
+  actionButton: {
+    width: '160px',
+    height: '50px',
     fontSize: '1rem',
-    backgroundColor: '#007BFF',
+    fontWeight: '500',
+    backgroundColor: '#007bff',
     color: 'white',
     border: 'none',
-    borderRadius: '5px',
+    borderRadius: '0.5rem',
     cursor: 'pointer',
+    textAlign: 'center',
   },
-  goBackButton: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: '10px 20px',
-    fontSize: '1rem',
-    backgroundColor: '#6c757d',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    marginBottom: '20px',
-    marginTop: '20px',
-  }
 };
 
 export default QrScan;
