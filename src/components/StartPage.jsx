@@ -29,8 +29,8 @@ export default function StartPage() {
 const styles = {
   container: {
     // padding: "4rem 1rem 2rem", // top, sides, bottom
-    paddingTop: 'calc(env(safe-area-inset-top, 20px) + 4rem)', // add safe top padding for newer iPhones
-    paddingBottom: 'calc(env(safe-area-inset-bottom, 20px) + 2rem)', // keeps footer clear of gesture area
+    paddingTop: 'calc(env(safe-area-inset-top, 20px) + 1rem)', // add safe top padding for newer iPhones
+    paddingBottom: 'calc(env(safe-area-inset-bottom, 20px) + 1rem)', // keeps footer clear of gesture area
     backgroundColor: '#f5f5f5',
     minHeight: '100vh',
     display: 'flex',
@@ -41,7 +41,7 @@ const styles = {
   heading: {
     fontSize: '2rem',
     fontWeight: 'bold',
-    marginBottom: '2rem',
+    marginBottom: '1rem',
     textAlign: 'center',
   },
   steps: {
@@ -74,7 +74,7 @@ const styles = {
     transition: 'background-color 0.2s ease',
   },
   footer: {
-    marginTop: '3rem',
+    marginTop: '1rem',
     display: 'flex',
     gap: '1rem',
     flexWrap: 'wrap',

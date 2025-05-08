@@ -172,12 +172,6 @@ function NavigationSearch() {
           >
             Find Path
           </button>
-          <button
-            onClick={() => navigate('/qr-scan')}
-            style={styles.actionButton}
-          >
-            Scan QR Code
-          </button>
         </div>
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -213,6 +207,9 @@ const styles = {
     fontSize: '1.5rem',
     color: '#333',
     marginBottom: '10px',
+    textAlign: 'left',
+    width: '100%',          
+    alignSelf: 'flex-start', 
   },
   input: {
     padding: '10px',
@@ -222,6 +219,10 @@ const styles = {
     width: '300px',
     marginBottom: '20px',
     placeholder: 'red',
+    textAlign: 'left',
+    width: '100%',          
+    alignSelf: 'flex-start',
+    marginRight: '30px'
   },
   button: {
     width: '160px',
