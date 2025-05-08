@@ -34,24 +34,11 @@ const AboutPage = () => {
                 <p>It is a mobile-first web application built using React with React Router for navigation. The backend is implemented with Node.js and Express, and Prisma is used as an ORM for database interactions. The application is designed with scalability and modularity in mind, reflecting modern full-stack development practices.
             </p>
             <div style={{ display: 'flex', gap: '1rem', margin: '1.5rem 0' }}>
-                <img src="/logos/aalborg.png" alt="Aalborg University" style={{ height: '40px' }} />
-                <img src="/logos/react.png" alt="React" style={{ height: '40px' }} />
-                <img src="/logos/expo.png" alt="Expo" style={{ height: '40px' }} />
-                <img src="/logos/prisma.png" alt="Prisma" style={{ height: '40px' }} />
+                <img src="/images/aaulogo.png" alt="Aalborg University" style={{ height: '40px' }} />
+                <img src="/images/reactlogo.png" alt="React" style={{ height: '40px' }} />
+                <img src="/images/expologo.png" alt="Expo" style={{ height: '40px' }} />
+                <img src="/images/prismalogo.jpg" alt="Prisma" style={{ height: '40px' }} />
             </div>
-            <h2>Meet the Team</h2>
-            <p>
-                This project was brought to life by a group of passionate developers and designers:
-            </p>
-            <ul>
-                <li>Mister Programmer - Lead Developer</li>
-                <li>John Doe - UX/UI Designer</li>
-                <li>Jane Smith - Backend Engineer</li>
-                <li>Michael Brown - Project Manager</li>
-            </ul>
-            <p>
-                We hope you enjoy using this application as much as we enjoyed building it!
-            </p>
         </div>
     );
 };
