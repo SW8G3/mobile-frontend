@@ -105,7 +105,7 @@ function NavigationSearch() {
         type="text"
         value={fromString}
         onChange={handleFromChange}
-        placeholder="current position"
+        placeholder="Your current position"
         style={styles.input}
       />
       {fromSuggestions.length > 0 && (
@@ -137,7 +137,7 @@ function NavigationSearch() {
         type="text"
         value={toString}
         onChange={handleToChange}
-        placeholder="wanted position"
+        placeholder="Destination e.g. 'reception' or 'CT scan'"
         style={styles.input}
       />
       {toSuggestions.length > 0 && (
