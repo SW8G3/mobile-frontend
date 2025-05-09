@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
 
       proxy: {
         '/graph': {
-          target: isDevelopment ? 'http://localhost:3002' : 'https://10.92.0.113/graph', // Use localhost in dev, cloud server in prod
+          target: isDevelopment ? 'https://localhost:3002' : 'https://10.92.0.113/graph', // Use localhost in dev, cloud server in prod
           changeOrigin: true,
           secure: false, // Allow self-signed certs
         },
@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     define: {
-      VITE_API_URL: JSON.stringify(isDevelopment ? 'http://localhost:3002' : 'https://10.92.0.113/api'),
+      VITE_API_URL: JSON.stringify(isDevelopment ? 'https://localhost:3002' : 'https://10.92.0.113/api'),
       VITE_ADMIN_API_URL: JSON.stringify(isDevelopment ? 'http://localhost:3001' : 'https://10.92.0.113/admin'),
       VITE_PORT: JSON.stringify(process.env.VITE_PORT),
     },

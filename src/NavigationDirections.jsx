@@ -41,12 +41,13 @@ function NavigationDirections() {
   }, [route]);
   return (
     <div className="user-view-container">
+      <WayfinderLogo />
       {/* Go Back Button */}
       <button
         className="go-back-button"
-        onClick={() => navigate(/destination)} // Navigate to the previous page
+        onClick={() => navigate('/destination')} // Navigate to the previous page
       >
-        <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
+        <FaArrowLeft />
       </button>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -60,7 +61,6 @@ function NavigationDirections() {
             cursor: 'pointer',
           }}
         >
-          <WayfinderLogo width={150} height={60} />
         </button>
       </div>
       <div className="carousel-container" data-testid="carousel-container">
@@ -129,7 +129,7 @@ const styles = {
     height: '50px',
     fontSize: '1rem',
     fontWeight: '500',
-    backgroundColor: '#007bff',
+    backgroundColor: 'rgba(62, 103, 175, 1)', // blue background
     color: 'white',
     border: 'none',
     borderRadius: '0.5rem',
