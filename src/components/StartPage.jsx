@@ -40,9 +40,9 @@ export default function StartPage() {
       </div>
 
       <div style={styles.buttonGroup}>
-        <Link to="/login" style={styles.button}>
+        {/* <Link to="/login" style={styles.button}>
           Admin log in
-        </Link>
+        </Link> */}
         <Link to="/about" style={styles.button}>
           About
         </Link>
