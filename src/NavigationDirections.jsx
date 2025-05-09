@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-undef */
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -9,6 +11,7 @@ import { useRoute } from './RouteContext';
 import { getDirectionPhoto } from './API/NavigationAPI';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
+import WayfinderLogo from './components/WayfinderLogo';
 
 function NavigationDirections() {
   const { route } = useRoute();
@@ -50,32 +53,27 @@ function NavigationDirections() {
         <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
       </button>
 
-      <button
-        className="go-home-button"
-        onClick={() => navigate('/')} // Navigate to the root path
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          padding: '10px 20px',
-          fontSize: '1rem',
-          backgroundColor: '#007BFF',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-          marginBottom: '20px',
-        }}
-      >
-        Go to Home
-      </button>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <button
+          className="go-home-button"
+          onClick={() => navigate('/')} // Navigate to the root path
+          style={{
+            padding: 0,
+            backgroundColor: '#007BFF',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          <WayfinderLogo width={150} height={60} />
+        </button>
+      </div>
 
-      <h1>Direction Photos</h1>
       <div className="carousel-container" data-testid="carousel-container">
         <Swiper
           direction="horizontal"
           modules={[Navigation, Pagination]}
           navigation={{
-            nextEl: '.swiper-button-next',
+            nextEl: ''.swiper-button-next,
             prevEl: '.swiper-button-prev',
           }}
           pagination={{ clickable: true }}
