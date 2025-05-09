@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+ 
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -9,12 +11,11 @@ import { useRoute } from './RouteContext';
 import { getDirectionPhoto } from './API/NavigationAPI';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
-
+import WayfinderLogo from './components/WayfinderLogo';
 function NavigationDirections() {
   const { route } = useRoute();
   const [imgUrls, setImgUrls] = useState([]);
   const navigate = useNavigate(); // Initialize useNavigate
-
   useEffect(() => {
     const fetchImageUrls = async () => {
       if (route && route.length >= 2) {
@@ -36,40 +37,32 @@ function NavigationDirections() {
         setImgUrls(urls); // Update the state with the fetched URLs
       }
     };
-
     fetchImageUrls();
   }, [route]);
-
   return (
     <div className="user-view-container">
+      <WayfinderLogo />
       {/* Go Back Button */}
       <button
         className="go-back-button"
-        onClick={() => navigate(-1)} // Navigate to the previous page
+        onClick={() => navigate('/destination')} // Navigate to the previous page
       >
-        <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
+        <FaArrowLeft />
       </button>
 
-      <button
-        className="go-home-button"
-        onClick={() => navigate('/')} // Navigate to the root path
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          padding: '10px 20px',
-          fontSize: '1rem',
-          backgroundColor: '#007BFF',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-          marginBottom: '20px',
-        }}
-      >
-        Go to Home
-      </button>
-
-      <h1>Direction Photos</h1>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <button
+          className="go-home-button"
+          onClick={() => navigate('/')} // Navigate to the root path
+          style={{
+            padding: 0,
+            backgroundColor: '#007BFF',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+        </button>
+      </div>
       <div className="carousel-container" data-testid="carousel-container">
         <Swiper
           direction="horizontal"
@@ -108,8 +101,42 @@ function NavigationDirections() {
           ></div>
         </Swiper>
       </div>
+      <div style={styles.bottomButtonWrapper}>
+        <div style={styles.buttonsContainer}>
+          <button onClick={() => navigate('/destination')} style={styles.actionButton}>
+          Find another path
+          </button>
+          <button onClick={() => navigate('/qr-scan')} style={styles.actionButton}>
+            Lost? Scan QR code
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
-
+const styles = {
+  bottomButtonWrapper: {
+    marginTop: '2rem',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  buttonsContainer: {
+    display: 'flex',
+    gap: '1rem',
+  },
+  actionButton: {
+    width: '160px',
+    height: '50px',
+    fontSize: '1rem',
+    fontWeight: '500',
+    backgroundColor: 'rgba(62, 103, 175, 1)', // blue background
+    color: 'white',
+    border: 'none',
+    borderRadius: '0.5rem',
+    cursor: 'pointer',
+    textAlign: 'center',
+  },
+};
 export default NavigationDirections;
+
+

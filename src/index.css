@@ -2,17 +2,16 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Set base font size for mobile scaling */
+  font-size: 16px;
 }
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -21,20 +20,22 @@ a {
 a:hover {
   color: #535bf2;
 }
-
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  /*display: flex;*/
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 1rem; /* Add padding for better spacing */
+  box-sizing: border-box;
 }
-
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2em; /* Adjust font size for mobile */
+  line-height: 1.2;
+  text-align: center; /* Center-align text for mobile */
 }
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -45,6 +46,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  width: 100%; /* Make buttons full-width for mobile */
+  max-width: 300px; /* Limit button width */
 }
 button:hover {
   border-color: #646cff;
@@ -53,7 +56,6 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -64,5 +66,24 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+/* Add media query for mobile scaling */
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px; /* Reduce base font size for smaller screens */
+  }
+
+  h1 {
+    font-size: 1.8em; /* Further adjust font size for smaller screens */
+  }
+
+  body {
+    padding: 0.5rem; /* Reduce padding for smaller screens */
+  }
+
+  button {
+    font-size: 0.9em; /* Adjust button font size */
+    padding: 0.5em 1em; /* Adjust button padding */
   }
 }

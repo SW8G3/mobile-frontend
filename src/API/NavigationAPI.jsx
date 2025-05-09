@@ -1,4 +1,7 @@
 import axios from 'axios';
+// const api = axios.create({
+//     baseURL: `${import.meta.env.VITE_API_URL}/graph`
+// });
 
 const api = axios.create({
     baseURL: '/graph'
@@ -16,7 +19,6 @@ const searchWithTag = async (searchTag) => {
         throw err;
     }
 };
-
 const getNodeFromId = async (nodeId) => {
     try {
         const data = {
@@ -29,7 +31,6 @@ const getNodeFromId = async (nodeId) => {
         throw err;
     }
 };
-
 // src = source, dst = destination
 const getRoute = async (src, dst) => {
     try {
@@ -44,7 +45,6 @@ const getRoute = async (src, dst) => {
         throw err;
     }
 };
-
 const getDirectionPhoto = async (src, dst) => {
     try {
         const data = {
@@ -58,5 +58,6 @@ const getDirectionPhoto = async (src, dst) => {
         throw err;
     }
 };
-
 export { searchWithTag, getNodeFromId, getRoute, getDirectionPhoto };
+
+
