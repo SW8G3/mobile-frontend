@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/* eslint-disable no-undef */
+ 
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -73,7 +73,7 @@ function NavigationDirections() {
           direction="horizontal"
           modules={[Navigation, Pagination]}
           navigation={{
-            nextEl: ''.swiper-button-next,
+            nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           }}
           pagination={{ clickable: true }}

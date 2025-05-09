@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
+import WayfinderLogo from './WayfinderLogo';
 
 export default function StartPage() {
 
 
   return (
     <div style={styles.container}>
+      <WayfinderLogo width={150} height={60} />
       <div style={styles.buttonGroup}>
         <Link to="/destination" style={styles.title}>
           Navigation
