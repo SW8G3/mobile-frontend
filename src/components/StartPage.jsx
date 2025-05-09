@@ -1,13 +1,9 @@
 import { Link } from 'react-router-dom';
+import WayfinderLogo from './WayfinderLogo';
 export default function StartPage() {
   return (
     <div style={styles.container}>
-      <h1 style={styles.heading}><svg width="150" height="60" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" fill="none">
-        <rect width="300" height="120" rx="20" fill="#005EB8" />
-        <circle cx="60" cy="60" r="40" fill="white" />
-        <path d="M60 30 L75 90 L60 75 L45 90 Z" fill="#005EB8" />
-        <text x="130" y="70" font-family="Arial, sans-serif" font-size="32" fill="white">Wayfinder</text>
-      </svg></h1>
+      <h1 style={styles.heading}><WayfinderLogo width={150} height={60} /></h1>
       <div style={styles.steps}>
         <div style={styles.step}>
           <p><strong>1. Set your destination</strong> by tapping below.</p>

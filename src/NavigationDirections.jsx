@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+ 
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -9,6 +11,7 @@ import { useRoute } from './RouteContext';
 import { getDirectionPhoto } from './API/NavigationAPI';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
+import WayfinderLogo from './components/WayfinderLogo';
 function NavigationDirections() {
   const { route } = useRoute();
   const [imgUrls, setImgUrls] = useState([]);
@@ -38,42 +41,28 @@ function NavigationDirections() {
   }, [route]);
   return (
     <div className="user-view-container">
-      <div style={{
-        width: '100%',
-        maxWidth: '360px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingBottom: '1.5rem',
-      }}>
+      {/* Go Back Button */}
+      <button
+        className="go-back-button"
+        onClick={() => navigate(/destination)} // Navigate to the previous page
+      >
+        <FaArrowLeft style={{ marginRight: '5px' }} /> Go Back
+      </button>
+
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
         <button
-          onClick={() => navigate('/destination')}
+          className="go-home-button"
+          onClick={() => navigate('/')} // Navigate to the root path
           style={{
-            background: 'none',
+            padding: 0,
+            backgroundColor: '#007BFF',
             border: 'none',
-            fontSize: '1.5rem',
             cursor: 'pointer',
-            color: '#333',
           }}
-          title="Back"
         >
-          <FaArrowLeft />
-        </button>
-        <button
-          onClick={() => navigate('/')}
-          style={{
-            background: 'none',
-            border: 'none',
-            fontSize: '1.5rem',
-            cursor: 'pointer',
-            color: '#333',
-          }}
-          title="Home"
-        >
-          🏠
+          <WayfinderLogo width={150} height={60} />
         </button>
       </div>
-      <h1>Direction Photos</h1>
       <div className="carousel-container" data-testid="carousel-container">
         <Swiper
           direction="horizontal"

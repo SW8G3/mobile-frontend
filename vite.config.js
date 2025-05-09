@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
 
       proxy: {
         '/graph': {
-          target: isDevelopment ? 'https://localhost:3002' : 'https://10.92.0.113/graph', // Use localhost in dev, cloud server in prod
+          target: isDevelopment ? 'http://localhost:3002' : 'https://10.92.0.113/graph', // Use localhost in dev, cloud server in prod
           changeOrigin: true,
           secure: false, // Allow self-signed certs
         },
