@@ -16,13 +16,11 @@ export default function StartPage() {
         <div style={styles.step}>
           <p><strong>2. Follow the route</strong> using turn-by-turn directions provided on screen.</p>
         </div>
-
         <div style={styles.step}>
           <p><strong>3. Arrive at your destination</strong> by following the guide to the end.</p>
         </div>
       </div>
       <div style={styles.footer}>
-        <Link to="/login" style={styles.secondaryButton}>Admin log in</Link>
         <Link to="/about" style={styles.secondaryButton}>About</Link>
       </div>
     </div>
