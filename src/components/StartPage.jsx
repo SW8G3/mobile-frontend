@@ -1,68 +1,93 @@
-import { Link, useNavigate } from "react-router-dom";
-import React from "react";
-
+import { Link } from 'react-router-dom';
+import WayfinderLogo from './WayfinderLogo';
 export default function StartPage() {
-  const navigate = useNavigate();
-  
   return (
     <div style={styles.container}>
-      <div>
-      <Link to="/destination" style={styles.title}>
-        Navigation
-      </Link>
+      <WayfinderLogo />
+      <h1 style={styles.heading}></h1>
+      <div style={styles.steps}>
+        <div style={styles.step}>
+          <p><strong>1. Set your destination</strong> by tapping below.</p>
+          <Link to="/destination" style={styles.primaryButton}>Navigation</Link>
+          <p><strong> or scan the QR code</strong> on the wall</p>
+          <Link to="/qr-scan" style={styles.primaryButton}>Scan QR Code</Link>
+        </div>
+
+        <div style={styles.step}>
+          <p><strong>2. Follow the route</strong> using turn-by-turn directions provided on screen.</p>
+        </div>
+        <div style={styles.step}>
+          <p><strong>3. Arrive at your destination</strong> by following the guide to the end.</p>
+        </div>
       </div>
-      
-      <div style={{ 
-        color: 'black', 
-        fontSize: 'large',
-        marginBottom: '20px'
-      }}>
-        <p><strong>1. StartPage:</strong> Click the "StartPage" button to begin your journey.</p>
-        <p><strong>2. Set Your Destination:</strong> Tell us where you need to go - you can type a location or scan a QR code.</p>
-        <p><strong>3. Follow the Guide:</strong> We'll show you step-by-step directions with pictures of key landmarks.</p>
-        <p><strong>4. Reach Your Goal:</strong> The app will guide you right to your destination.</p>
-      </div>
-      
-      <div style={styles.buttonGroup}>
-        <Link to="/login" style={styles.button}>
-          Admin log-in
-        </Link>
-        <Link to="/about" style={styles.button}>
-          About
-        </Link>
+      <div style={styles.footer}>
+        <Link to="/about" style={styles.secondaryButton}>About</Link>
       </div>
     </div>
   );
 }
-
 const styles = {
   container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "20px",
-    backgroundColor: "#f5f5f5",
-    height: "100vh",
-    width: "100vw",
-  },
-  buttonGroup: {
+    paddingTop: 'calc(env(safe-area-inset-top, 20px) + 1rem)', // add safe top pad</button>ding for newer iPhones
+    paddingBottom: 'calc(env(safe-area-inset-bottom, 20px) + 1rem)', // keeps footer clear of gesture area
+    backgroundColor: 'rgba(245, 245, 245, 1)', // light gray background
+    minHeight: '100vh',
     display: 'flex',
-    gap: '20px'
+    flexDirection: 'column',
+    alignItems: 'center',
+    boxSizing: 'border-box',
   },
-  button: {
-    padding: '15px 30px',
-    backgroundColor: '#007bff',
-    color: 'white',
-    textDecoration: 'none',
-    borderRadius: '5px'
+  heading: {
+    marginBottom: '1px',
+    marginTop: '',
+    textAlign: 'center',
   },
-  title: { 
-    padding: '15px 30px',
-    backgroundColor: '#007bff',
-    color: 'white',
+  steps: {
+    width: '100%',
+    maxWidth: '480px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem',
+  },
+  step: {
+    backgroundColor: 'rgba(255, 255, 255, 1)', // white background
+    padding: '1.2rem',
+    borderRadius: '0.5rem',
+    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.1)', // light shadow
+    textAlign: 'center',
+  },
+  primaryButton: {
+    display: 'inline-block',
+    width: '160px',
+    height: '50px',
+    // marginTop: '1rem',
+    backgroundColor: 'rgba(62, 103, 175, 1)', // blue background
+    color: 'rgba(255, 255, 255, 1)', // white text
     textDecoration: 'none',
-    borderRadius: '5px',
-    margin: '20px 0'
+    borderRadius: '0.5rem',
+    fontSize: '1rem',
+    fontWeight: '500',
+    textAlign: 'center',
+    lineHeight: '50px',
+    transition: 'background-color 0.2s ease',
+  },
+  footer: {
+    marginTop: '1rem',
+    display: 'flex',
+    gap: '1rem',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  secondaryButton: {
+    width: '160px',
+    height: '50px',
+    backgroundColor: 'rgba(62, 103, 175, 1)', // blue background
+    color: 'rgba(255, 255, 255, 1)', // white text
+    textDecoration: 'none',
+    borderRadius: '0.5rem',
+    fontSize: '1rem',
+    fontWeight: '500',
+    textAlign: 'center',
+    lineHeight: '50px',
   },
 };
