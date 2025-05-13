@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { BrowserQRCodeReader } from '@zxing/browser';
 import { useNavigate } from 'react-router-dom';
+import WayfinderLogo from './components/WayFinderLogo';
 const QrScan = () => {
   const videoRef = useRef(null);
   const navigate = useNavigate();
@@ -43,12 +44,7 @@ const QrScan = () => {
         </div>
         <div style={styles.center}>
         <button onClick={() => navigate('/')} style={styles.logoButton} title="Home">
-        <svg width="140" height="55" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" fill="none">
-        <rect width="300" height="120" rx="20" fill="#005EB8" />
-        <circle cx="60" cy="60" r="40" fill="white" />
-        <path d="M60 30 L75 90 L60 75 L45 90 Z" fill="#005EB8" />
-        <text x="130" y="70" font-family="Arial, sans-serif" font-size="32" fill="white">Wayfinder</text>
-      </svg>
+        <WayfinderLogo />
         </button>
         </div> 
       </div>
