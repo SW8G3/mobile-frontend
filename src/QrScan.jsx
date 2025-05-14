@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
 import { useEffect, useRef } from 'react';
-import { FaArrowLeft } from 'react-icons/fa';
 import { BrowserQRCodeReader } from '@zxing/browser';
 import { useNavigate } from 'react-router-dom';
-import WayFinderLogo from './components/WayfinderLogo';
 import Header from './components/header';
 import SearchButton from './components/SearchButton'; // Import the SearchButton component
 
@@ -126,7 +124,7 @@ const styles = {
     borderRadius: '0.5rem',
     cursor: 'pointer',
     textAlign: 'center',
-    fontFamily: "Lexend",
+    fontFamily: 'Lexend',
   },
 };
 export default QrScan;
