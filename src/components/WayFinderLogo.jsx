@@ -1,5 +1,3 @@
-import React from 'react';
-
 const WayfinderLogo = (props) => (
   <svg
     width="140"
