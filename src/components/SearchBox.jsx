@@ -112,13 +112,16 @@ const styles = {
     textAlign: 'left',
     alignSelf: 'flex-start',
     marginRight: '30px',
+    backgroundColor: '#ffffff', // Hover effect
+    color: 'black',
   },
-  suggestionList: {
-    border: '1px solid #ccc',
-    padding: '0',
-    margin: '0',
-    listStyle: 'none',
-  },
+  // suggestionList: {
+  //   border: '1px solid #ccc',
+  //   padding: '0',
+  //   margin: '0',
+  //   listStyle: 'none',
+  //   backgroundColor: '#ffffff', // Hover effect
+  // },
    suggestionList: {
     position: 'absolute', // Changed to absolute positioning
     zIndex: 1000, // Ensure it appears above other elements
@@ -132,6 +135,8 @@ const styles = {
     margin: '0',
     listStyle: 'none',
     marginTop: '-40px', // Adjust to position closer to input
+    backgroundColor: '#ffffff', // Hover effect
+    color: 'black'
   },
   suggestionItem: {
     padding: '10px',

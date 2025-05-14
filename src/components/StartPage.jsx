@@ -48,6 +48,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '1rem',
+    color:'black'
   },
   step: {
     backgroundColor: 'rgba(255, 255, 255, 1)', // white background
