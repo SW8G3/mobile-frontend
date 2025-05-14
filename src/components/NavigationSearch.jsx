@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { searchWithTag, getNodeFromId, getRoute } from '../API/NavigationAPI';
 import { useRoute } from '../RouteContext';
 import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
+import WayfinderLogo from './WayfinderLogo';
 function NavigationSearch() {
   const { nodeId } = useParams();
   const [fromString, setFromString] = useState('');
@@ -83,23 +84,16 @@ function NavigationSearch() {
   };
   return (
     <div style={styles.container}>
-      {/* Header with Back and Home buttons */}
-      {<div style={styles.header}>
+      <div style={{ display: 'flex', alignItems: 'center', width: '100%', maxWidth: '360px', marginBottom: '1.5rem' }}>
         <button
           onClick={() => navigate('/')}
-          style={styles.backIcon}
+          style={{ ...styles.backIcon, marginRight: 'auto' }}
           title="Back"
         >
           <FaArrowLeft />
         </button>
-        {/* <button
-          onClick={() => navigate('/')}
-          style={styles.backIcon}
-          title="Home"
-        >
-          🏠
-        </button> */}
-      </div>}
+        <WayfinderLogo />
+      </div>
       <h2 style={styles.sectionTitle}>From:</h2>
       <input
         type="text"
@@ -228,7 +222,7 @@ const styles = {
     height: '50px',
     fontSize: '1rem',
     fontWeight: '500',
-    backgroundColor: '#007bff',
+    backgroundColor: 'rgba(62, 103, 175, 1)', // blue background
     color: 'white',
     border: 'none',
     borderRadius: '0.5rem',
@@ -254,7 +248,7 @@ const styles = {
     height: '50px',
     fontSize: '1rem',
     fontWeight: '500',
-    backgroundColor: '#007bff',
+    backgroundColor: 'rgba(62, 103, 175, 1)', // blue background
     color: 'white',
     border: 'none',
     borderRadius: '0.5rem',

@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
+import WayfinderLogo from './WayfinderLogo';
 export default function StartPage() {
   return (
     <div style={styles.container}>
-      <h1 style={styles.heading}><svg width="150" height="60" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" fill="none">
-        <rect width="300" height="120" rx="20" fill="#005EB8" />
-        <circle cx="60" cy="60" r="40" fill="white" />
-        <path d="M60 30 L75 90 L60 75 L45 90 Z" fill="#005EB8" />
-        <text x="130" y="70" font-family="Arial, sans-serif" font-size="32" fill="white">Wayfinder</text>
-      </svg></h1>
+      <WayfinderLogo />
+      <h1 style={styles.heading}></h1>
       <div style={styles.steps}>
         <div style={styles.step}>
           <p><strong>1. Set your destination</strong> by tapping below.</p>
@@ -19,13 +16,11 @@ export default function StartPage() {
         <div style={styles.step}>
           <p><strong>2. Follow the route</strong> using turn-by-turn directions provided on screen.</p>
         </div>
-
         <div style={styles.step}>
           <p><strong>3. Arrive at your destination</strong> by following the guide to the end.</p>
         </div>
       </div>
       <div style={styles.footer}>
-        <Link to="/login" style={styles.secondaryButton}>Admin log in</Link>
         <Link to="/about" style={styles.secondaryButton}>About</Link>
       </div>
     </div>
@@ -33,10 +28,9 @@ export default function StartPage() {
 }
 const styles = {
   container: {
-    // padding: "4rem 1rem 2rem", // top, sides, bottom
-    paddingTop: 'calc(env(safe-area-inset-top, 20px) + 1rem)', // add safe top padding for newer iPhones
+    paddingTop: 'calc(env(safe-area-inset-top, 20px) + 1rem)', // add safe top pad</button>ding for newer iPhones
     paddingBottom: 'calc(env(safe-area-inset-bottom, 20px) + 1rem)', // keeps footer clear of gesture area
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'rgba(245, 245, 245, 1)', // light gray background
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
@@ -56,19 +50,19 @@ const styles = {
     gap: '1rem',
   },
   step: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 1)', // white background
     padding: '1.2rem',
     borderRadius: '0.5rem',
-    boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
+    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.1)', // light shadow
     textAlign: 'center',
   },
   primaryButton: {
     display: 'inline-block',
     width: '160px',
     height: '50px',
-    marginTop: '1rem',
-    backgroundColor: '#007bff',
-    color: '#fff',
+    // marginTop: '1rem',
+    backgroundColor: 'rgba(62, 103, 175, 1)', // blue background
+    color: 'rgba(255, 255, 255, 1)', // white text
     textDecoration: 'none',
     borderRadius: '0.5rem',
     fontSize: '1rem',
@@ -87,8 +81,8 @@ const styles = {
   secondaryButton: {
     width: '160px',
     height: '50px',
-    backgroundColor: '#007bff',
-    color: '#fff',
+    backgroundColor: 'rgba(62, 103, 175, 1)', // blue background
+    color: 'rgba(255, 255, 255, 1)', // white text
     textDecoration: 'none',
     borderRadius: '0.5rem',
     fontSize: '1rem',

@@ -25,7 +25,7 @@
 .start-button {
   padding: 1rem 2rem;
   font-size: 1rem;
-  background-color: #007bff;
+  background-color: #594fbf;
   color: white;
   border: none;
   border-radius: 2rem;
@@ -86,7 +86,7 @@
   transform: translateY(-50%); /* Center the pagination horizontally */
 }
 .swiper-pagination-bullet {
-  background-color: #007bff;
+  background-color: #594fbf;
   width: 0.75rem;
   height: 0.75rem;
   opacity: 0.5;
@@ -103,7 +103,7 @@
 .swiper-button-next,
 .swiper-button-prev {
   background-color: rgba(255, 255, 255, 0.8);
-  color: #0d0aef;
+  color: #594fbf;
   font-size: 1.5rem;
   border-radius: 50%;
   width: 2.5rem;

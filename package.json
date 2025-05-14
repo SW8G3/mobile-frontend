@@ -11,10 +11,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fontsource/lexend": "^5.2.7",
+    "@react-leaflet/core": "^3.0.0",
     "@zxing/browser": "^0.1.5",
     "axios": "^1.8.4",
     "dotenv": "^16.4.7",
-    "@react-leaflet/core": "^3.0.0",
     "eslint-plugin-jest": "^28.11.0",
     "jest": "^29.7.0",
     "leaflet": "^1.9.4",

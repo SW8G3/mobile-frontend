@@ -1,7 +1,12 @@
 import axios from 'axios';
+// const api = axios.create({
+//     baseURL: `${import.meta.env.VITE_API_URL}/graph`
+// });
+
 const api = axios.create({
-    baseURL: `${import.meta.env.VITE_API_URL}/graph`
+    baseURL: '/graph'
 });
+
 const searchWithTag = async (searchTag) => {
     try {
         const data = {
