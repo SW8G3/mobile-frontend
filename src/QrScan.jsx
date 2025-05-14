@@ -4,7 +4,8 @@ import { useEffect, useRef } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { BrowserQRCodeReader } from '@zxing/browser';
 import { useNavigate } from 'react-router-dom';
-import WayfinderLogo from './components/WayFinderLogo';
+import WayFinderLogo from './components/WayfinderLogo';
+
 const QrScan = () => {
   const videoRef = useRef(null);
   const navigate = useNavigate();
@@ -134,6 +135,7 @@ const styles = {
     borderRadius: '0.5rem',
     cursor: 'pointer',
     textAlign: 'center',
+    fontFamily: "Lexend",
   },
 };
 export default QrScan;
