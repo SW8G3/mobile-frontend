@@ -210,11 +210,10 @@ const styles = {
     fontSize: '1rem',
     borderRadius: '5px',
     border: '1px solid #ccc',
-    width: '300px',
+    width: '80vw',
     marginBottom: '20px',
     placeholder: 'red',
-    textAlign: 'left',
-    // width: '100%',          
+    textAlign: 'left',         
     alignSelf: 'flex-start',
     marginRight: '30px'
   },
