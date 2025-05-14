@@ -61,11 +61,9 @@ function NavigationSearch() {
       <Header/>
       <SearchBox fromString={fromString} toString={toString} setFrom={setFrom} setTo={setTo} setFromString={setFromString} setToString={setToString} />
       <div style={styles.bottomButtonWrapper}>
-        <div style={styles.buttonsContainer}>
-          <SearchButton onClick={handleSearch}>
-            Find Path
-          </SearchButton>
-        </div>
+        <SearchButton onClick={handleSearch}>
+          Find Path
+        </SearchButton>
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
@@ -77,7 +75,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '20px',
+    // padding: '20px',
     backgroundColor: '#f5f5f5',
     height: '100vh',
   },
@@ -86,28 +84,12 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     paddingBottom: '20%',
-  },
-  buttonsContainer: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     gap: '1rem',
     width: '100%',
-    maxWidth: '360px',
-  },
-  actionButton: {
-    width: '160px',
-    height: '50px',
-    fontSize: '1.5rem',
-    fontWeight: '500',
-    backgroundColor: 'rgba(62, 103, 175, 1)', // blue background
-    color: 'white',
-    border: 'none',
-    borderRadius: '0.5rem',
-    cursor: 'pointer',
-    textAlign: 'center',
-    fontFamily: "Lexend",
-  },
+  }
 };
 export default NavigationSearch;

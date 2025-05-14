@@ -38,7 +38,7 @@ function SearchBox({ fromString, toString, setFrom, setTo, setFromString, setToS
   };
 
   return (
-    <div style={{ padding: '5%', marginTop: '-10%' }}> {/* Adjust marginTop as needed */}
+    <div style={{ height: '100%'}} >
       <h2 style={styles.sectionTitle}>From:</h2>
       <input
         type="text"

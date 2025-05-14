@@ -43,44 +43,54 @@ function NavigationDirections() {
   return (
     <div style={styles.container}>
       <Header />
-      <div className="carousel-container" data-testid="carousel-container">
-        <Swiper
-          direction="horizontal"
-          modules={[Navigation, Pagination]}
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
-          pagination={{ clickable: true }}
-          spaceBetween={10}
-          slidesPerView={1}
-        >
-          {imgUrls.map((url, index) => (
-            <SwiperSlide key={index}>
-              <div className="step-content">
-                <img
-                  src={url}
-                  alt={`Step ${index + 1}`}
-                  className="step-image"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = '/fallback.png'; // Fallback image in case of error
-                  }}
-                />
-                <p className="step-instruction">Step {index + 1}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-          <div
-            className="swiper-button-next"
-            data-testid="swiper-button-next"
-          ></div>
-          <div
-            className="swiper-button-prev"
-            data-testid="swiper-button-prev"
-          ></div>
-        </Swiper>
-      </div>
+      
+      {imgUrls.length === 0 ? (
+        <div className="loading-animation" data-testid="loading-animation">
+          <p style={{color:'black', fontSize: '2rem'}}>Loading...</p>
+          {/* You can replace this with a spinner or any loading animation */}
+        </div>
+      ) : (
+        <div className="carousel-container" data-testid="carousel-container">
+          <Swiper
+            direction="horizontal"
+            modules={[Navigation, Pagination]}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+            pagination={{ clickable: true }}
+            spaceBetween={10}
+            slidesPerView={1}
+            style={{ marginTop: '0 !important', paddingTop: '0 !important' }}
+          >
+            {imgUrls.map((url, index) => (
+              <SwiperSlide key={index}>
+                <div className="step-content">
+                  <img
+                    src={url}
+                    alt={`Step ${index + 1}`}
+                    className="step-image"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/fallback.png'; // Fallback image in case of error
+                    }}
+                  />
+                  <p className="step-instruction">Step {index + 1}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+            <div
+              className="swiper-button-next"
+              data-testid="swiper-button-next"
+            ></div>
+            <div
+              className="swiper-button-prev"
+              data-testid="swiper-button-prev"
+            ></div>
+          </Swiper>
+        </div>
+      )}
+      
       <div style={styles.bottomButtonWrapper}>
         <div style={styles.buttonsContainer}>
           <SearchButton onClick={() => navigate('/destination')} style={styles.actionButton}>
@@ -103,19 +113,11 @@ const styles = {
     padding: '2rem', // Scalable padding
     backgroundColor: '#f5f5f5',
     boxSizing: 'border-box', // Ensures padding is included in width/height
-  }, 
-  header: {
-    display: 'flex',
-    flexDirection: 'column',
-    // height: '100vh', // Full viewport height
-    padding: '2rem', // Scalable padding
-    backgroundColor: '#f5f5f5',
-    boxSizing: 'border-box', // Ensures padding is included in width/height
   },
   bottomButtonWrapper: {
     marginTop: '2rem',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   buttonsContainer: {
     display: 'flex',
@@ -138,15 +140,7 @@ const styles = {
   left: {
     postion: 'absolute',
     left: '0',
-  },
-  backIcon: {
-    background: 'none',
-    border: 'none',
-    fontSize: '1.5rem',
-    cursor: 'pointer',
-    color: '#333',
-  },
-
+  }
 };
 export default NavigationDirections;
 

@@ -2,8 +2,8 @@ import React from 'react';
 
 const SearchButton = ({ children, onClick, style = {} }) => {
   const buttonStyles = {
-    width: '160px',
-    height: '50px',
+    width: '12rem',
+    height: '3em',
     fontSize: '1.5rem',
     fontWeight: '500',
     backgroundColor: 'rgba(62, 103, 175, 1)',

@@ -1,16 +1,24 @@
-import { Link } from 'react-router-dom';
-import WayfinderLogo from './WayfinderLogo';
+import { useNavigate } from 'react-router-dom';
+import Header from './header';
+import SearchButton from './SearchButton';
+
 export default function StartPage() {
+  const navigate = useNavigate();
+  
   return (
     <div style={styles.container}>
-      <WayfinderLogo />
+      <Header />
       <h1 style={styles.heading}></h1>
       <div style={styles.steps}>
         <div style={styles.step}>
           <p><strong>1. Set your destination</strong> by tapping below.</p>
-          <Link to="/destination" style={styles.primaryButton}>Navigation</Link>
+          <SearchButton onClick={() => navigate('/destination')} style={styles.actionButton}>
+            Navigation
+          </SearchButton>
           <p><strong> or scan the QR code</strong> on the wall</p>
-          <Link to="/qr-scan" style={styles.primaryButton}>Scan QR Code</Link>
+          <SearchButton onClick={() => navigate('/qr-scan')} style={styles.actionButton}>
+            Scan QR
+          </SearchButton>
         </div>
 
         <div style={styles.step}>
@@ -21,7 +29,9 @@ export default function StartPage() {
         </div>
       </div>
       <div style={styles.footer}>
-        <Link to="/about" style={styles.secondaryButton}>About</Link>
+          <SearchButton onClick={() => navigate('/about')} style={styles.actionButton}>
+            About
+          </SearchButton>
       </div>
     </div>
   );
@@ -43,7 +53,7 @@ const styles = {
     textAlign: 'center',
   },
   steps: {
-    width: '100%',
+    width: '90%',
     maxWidth: '480px',
     display: 'flex',
     flexDirection: 'column',
@@ -55,7 +65,7 @@ const styles = {
     padding: '1.2rem',
     borderRadius: '0.5rem',
     boxShadow: '0 1px 4px rgba(0, 0, 0, 0.1)', // light shadow
-    textAlign: 'center',
+    textAlign: 'center'
   },
   primaryButton: {
     display: 'inline-block',
