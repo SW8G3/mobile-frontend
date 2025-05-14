@@ -61,6 +61,7 @@ function NavigationSearch() {
     }
     try {
       const response = await searchWithTag(value);
+      console.log('Response from searchWithTag: ', response);
       setFromSuggestions(response.nodes || []); // Update suggestions
     } catch (err) {
       console.error('Error fetching suggestions:', err);
@@ -76,6 +77,7 @@ function NavigationSearch() {
     }
     try {
       const response = await searchWithTag(value);
+      console.log('Response from searchWithTag: ', response);
       setToSuggestions(response.nodes || []); // Update suggestions
     } catch (err) {
       console.error('Error fetching suggestions:', err);
