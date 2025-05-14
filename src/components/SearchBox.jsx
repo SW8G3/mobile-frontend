@@ -115,13 +115,6 @@ const styles = {
     backgroundColor: '#ffffff', // Hover effect
     color: 'black',
   },
-  // suggestionList: {
-  //   border: '1px solid #ccc',
-  //   padding: '0',
-  //   margin: '0',
-  //   listStyle: 'none',
-  //   backgroundColor: '#ffffff', // Hover effect
-  // },
    suggestionList: {
     position: 'absolute', // Changed to absolute positioning
     zIndex: 1000, // Ensure it appears above other elements

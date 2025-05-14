@@ -5,6 +5,8 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { BrowserQRCodeReader } from '@zxing/browser';
 import { useNavigate } from 'react-router-dom';
 import WayFinderLogo from './components/WayfinderLogo';
+import Header from './components/header';
+import SearchButton from './components/SearchButton'; // Import the SearchButton component
 
 const QrScan = () => {
   const videoRef = useRef(null);
@@ -39,28 +41,17 @@ const QrScan = () => {
   }, [navigate]);
   return (
     <div style={styles.container}>
-      <div style={styles.header}> 
-      <div style={styles.left}>
-        <button onClick={() => navigate(-1)} style={styles.backIcon} title="Back">
-          <FaArrowLeft />
-        </button>
-        </div>
-        <div style={styles.center}>
-        <button onClick={() => navigate('/')} style={styles.logoButton} title="Home">
-        <WayfinderLogo />
-        </button>
-        </div> 
-      </div>
+      < Header/>
       <h1 style={styles.title}>Scan QR Code</h1>
       <div style={styles.qrContainer}>
         <video ref={videoRef} style={styles.qrReader}></video>
       </div>
-      <button
+      <SearchButton
         style={styles.actionButton}
         onClick={() => navigate('/destination')}
       >
         Manual Input
-      </button>
+      </SearchButton>
     </div>
   );
 };
