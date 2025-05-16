@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
 import { useEffect, useRef } from 'react';
-import { FaArrowLeft } from 'react-icons/fa';
 import { BrowserQRCodeReader } from '@zxing/browser';
 import { useNavigate } from 'react-router-dom';
-import WayfinderLogo from './components/WayFinderLogo';
+import Header from './components/header';
+import SearchButton from './components/SearchButton'; // Import the SearchButton component
+
 const QrScan = () => {
   const videoRef = useRef(null);
   const navigate = useNavigate();
@@ -38,28 +39,17 @@ const QrScan = () => {
   }, [navigate]);
   return (
     <div style={styles.container}>
-      <div style={styles.header}> 
-      <div style={styles.left}>
-        <button onClick={() => navigate(-1)} style={styles.backIcon} title="Back">
-          <FaArrowLeft />
-        </button>
-        </div>
-        <div style={styles.center}>
-        <button onClick={() => navigate('/')} style={styles.logoButton} title="Home">
-        <WayfinderLogo />
-        </button>
-        </div> 
-      </div>
+      < Header/>
       <h1 style={styles.title}>Scan QR Code</h1>
       <div style={styles.qrContainer}>
         <video ref={videoRef} style={styles.qrReader}></video>
       </div>
-      <button
+      <SearchButton
         style={styles.actionButton}
         onClick={() => navigate('/destination')}
       >
         Manual Input
-      </button>
+      </SearchButton>
     </div>
   );
 };
@@ -134,6 +124,7 @@ const styles = {
     borderRadius: '0.5rem',
     cursor: 'pointer',
     textAlign: 'center',
+    fontFamily: 'Lexend',
   },
 };
 export default QrScan;

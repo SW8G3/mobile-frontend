@@ -10,8 +10,9 @@ import './UserStyle.css';
 import { useRoute } from './RouteContext';
 import { getDirectionPhoto } from './API/NavigationAPI';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
-import WayfinderLogo from './components/WayfinderLogo';
+import Header from './components/header';
+import SearchButton from './components/SearchButton';
+
 function NavigationDirections() {
   const { route } = useRoute();
   const [imgUrls, setImgUrls] = useState([]);
@@ -40,85 +41,83 @@ function NavigationDirections() {
     fetchImageUrls();
   }, [route]);
   return (
-    <div className="user-view-container">
-      <WayfinderLogo />
-      {/* Go Back Button */}
-      <button
-        className="go-back-button"
-        onClick={() => navigate('/destination')} // Navigate to the previous page
-      >
-        <FaArrowLeft />
-      </button>
-
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <button
-          className="go-home-button"
-          onClick={() => navigate('/')} // Navigate to the root path
-          style={{
-            padding: 0,
-            backgroundColor: '#007BFF',
-            border: 'none',
-            cursor: 'pointer',
-          }}
-        >
-        </button>
-      </div>
-      <div className="carousel-container" data-testid="carousel-container">
-        <Swiper
-          direction="horizontal"
-          modules={[Navigation, Pagination]}
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
-          pagination={{ clickable: true }}
-          spaceBetween={10}
-          slidesPerView={1}
-        >
-          {imgUrls.map((url, index) => (
-            <SwiperSlide key={index}>
-              <div className="step-content">
-                <img
-                  src={url}
-                  alt={`Step ${index + 1}`}
-                  className="step-image"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = '/fallback.png'; // Fallback image in case of error
-                  }}
-                />
-                <p className="step-instruction">Step {index + 1}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-          <div
-            className="swiper-button-next"
-            data-testid="swiper-button-next"
-          ></div>
-          <div
-            className="swiper-button-prev"
-            data-testid="swiper-button-prev"
-          ></div>
-        </Swiper>
-      </div>
+    <div style={styles.container}>
+      <Header />
+      
+      {imgUrls.length === 0 ? (
+        <div className="loading-animation" data-testid="loading-animation">
+          <p style={{color:'black', fontSize: '2rem'}}>Loading...</p>
+          {/* You can replace this with a spinner or any loading animation */}
+        </div>
+      ) : (
+        <div className="carousel-container" data-testid="carousel-container">
+          <Swiper
+            direction="horizontal"
+            modules={[Navigation, Pagination]}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+            pagination={{ clickable: true }}
+            spaceBetween={10}
+            slidesPerView={1}
+            style={{ marginTop: '0 !important', paddingTop: '0 !important' }}
+          >
+            {imgUrls.map((url, index) => (
+              <SwiperSlide key={index}>
+                <div className="step-content">
+                  <img
+                    src={url}
+                    alt={`Step ${index + 1}`}
+                    className="step-image"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/fallback.png'; // Fallback image in case of error
+                    }}
+                  />
+                  <p className="step-instruction">Step {index + 1}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+            <div
+              className="swiper-button-next"
+              data-testid="swiper-button-next"
+            ></div>
+            <div
+              className="swiper-button-prev"
+              data-testid="swiper-button-prev"
+            ></div>
+          </Swiper>
+        </div>
+      )}
+      
       <div style={styles.bottomButtonWrapper}>
         <div style={styles.buttonsContainer}>
-          <button onClick={() => navigate('/destination')} style={styles.actionButton}>
-          Find another path
-          </button>
-          <button onClick={() => navigate('/qr-scan')} style={styles.actionButton}>
+          <SearchButton onClick={() => navigate('/destination')} style={styles.actionButton}>
+            Change destination
+          </SearchButton>
+          <SearchButton onClick={() => navigate('/qr-scan')} style={styles.actionButton}>
             Lost? Scan QR code
-          </button>
+          </SearchButton>
         </div>
       </div>
     </div>
   );
 }
 const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: '100vh', // Full viewport height
+    padding: '2rem', // Scalable padding
+    backgroundColor: '#f5f5f5',
+    boxSizing: 'border-box', // Ensures padding is included in width/height
+  },
   bottomButtonWrapper: {
     marginTop: '2rem',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   buttonsContainer: {
     display: 'flex',
@@ -127,7 +126,7 @@ const styles = {
   actionButton: {
     width: '160px',
     height: '50px',
-    fontSize: '1rem',
+    fontSize: '1.2rem',
     fontWeight: '500',
     backgroundColor: 'rgba(62, 103, 175, 1)', // blue background
     color: 'white',
@@ -135,7 +134,13 @@ const styles = {
     borderRadius: '0.5rem',
     cursor: 'pointer',
     textAlign: 'center',
-  },
+    paddingBottom: '3.5rem',
+    fontFamily: 'Lexend',
+},
+  left: {
+    postion: 'absolute',
+    left: '0',
+  }
 };
 export default NavigationDirections;
 
