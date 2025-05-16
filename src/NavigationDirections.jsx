@@ -10,7 +10,7 @@ import './UserStyle.css';
 import { useRoute } from './RouteContext';
 import { getDirectionPhoto } from './API/NavigationAPI';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import Header from './components/header';
+import Header from './components/Header';
 import SearchButton from './components/SearchButton';
 
 function NavigationDirections() {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getNodeFromId, getRoute } from '../API/NavigationAPI';
 import { useRoute } from '../RouteContext';
-import Header from './header';
+import Header from './Header';
 import SearchBox from './SearchBox';
 import SearchButton from './SearchButton'; // Import the SearchButton component
 

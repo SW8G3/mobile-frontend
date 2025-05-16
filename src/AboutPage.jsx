@@ -1,4 +1,4 @@
-import Header from './components/header'; // Import the Header component
+import Header from './components/Header'; // Import the Header component
 
 const AboutPage = () => {
     return (

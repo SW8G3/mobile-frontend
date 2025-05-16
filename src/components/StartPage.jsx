@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Header from './header';
+import Header from './Header';
 import SearchButton from './SearchButton';
 
 export default function StartPage() {
