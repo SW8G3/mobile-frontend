@@ -1,9 +1,6 @@
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
-// import { Header } from '@react-navigation/stack';
 import Header from './components/header'; // Import the Header component
+
 const AboutPage = () => {
-    const navigate = useNavigate(); // Initialize useNavigate
     return (
         
         <div style={{...styles.background, display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh' }}>

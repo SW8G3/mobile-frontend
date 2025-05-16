@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const SearchButton = ({ children, onClick, style = {} }) => {
   const buttonStyles = {
@@ -21,6 +21,12 @@ const SearchButton = ({ children, onClick, style = {} }) => {
       {children}
     </button>
   );
+};
+
+SearchButton.propTypes = {
+  children: PropTypes.node,
+  onClick: PropTypes.func,
+  style: PropTypes.object,
 };
 
 export default SearchButton;

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { searchWithTag } from '../API/NavigationAPI';
 
 function SearchBox({ fromString, toString, setFrom, setTo, setFromString, setToString }) {
@@ -138,6 +139,15 @@ const styles = {
       backgroundColor: '#f5f5f5', // Hover effect
     }
   },
+};
+
+SearchBox.propTypes = {
+  fromString: PropTypes.string.isRequired,
+  toString: PropTypes.string.isRequired,
+  setFrom: PropTypes.func.isRequired,
+  setTo: PropTypes.func.isRequired,
+  setFromString: PropTypes.func.isRequired,
+  setToString: PropTypes.func.isRequired,
 };
 
 export default SearchBox;

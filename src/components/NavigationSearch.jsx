@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { searchWithTag, getNodeFromId, getRoute } from '../API/NavigationAPI';
+import { getNodeFromId, getRoute } from '../API/NavigationAPI';
 import { useRoute } from '../RouteContext';
-import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
 import Header from './header';
 import SearchBox from './SearchBox';
 import SearchButton from './SearchButton'; // Import the SearchButton component
@@ -14,8 +13,6 @@ function NavigationSearch() {
   const [from, setFrom] = useState(0);
   const [to, setTo] = useState(0);
   const [error, setError] = useState(null);
-  const [fromSuggestions, setFromSuggestions] = useState([]); // State for dropdown suggestions
-  const [toSuggestions, setToSuggestions] = useState([]); // State for dropdown suggestions
   const { setRoute } = useRoute();
   const navigate = useNavigate();
 

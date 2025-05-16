@@ -135,7 +135,7 @@ const styles = {
     cursor: 'pointer',
     textAlign: 'center',
     paddingBottom: '3.5rem',
-    fontFamily: "Lexend",
+    fontFamily: 'Lexend',
 },
   left: {
     postion: 'absolute',
