@@ -122,7 +122,6 @@ const styles = {
     maxHeight: '200px', // Limit height and add scroll
     overflowY: 'auto', // Add scroll if needed
     border: '1px solid #ccc',
-    backgroundColor: 'white', // Solid background
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)', // Add shadow for overlay effect
     padding: '0',
     margin: '0',

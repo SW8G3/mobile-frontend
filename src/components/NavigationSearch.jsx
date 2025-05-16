@@ -81,12 +81,10 @@ const styles = {
   },
   bottomButtonWrapper: {
     marginBottom: '20%',
-    display: 'flex',
     justifyContent: 'center',
     paddingBottom: '20%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
     gap: '1rem',
     width: '100%',
