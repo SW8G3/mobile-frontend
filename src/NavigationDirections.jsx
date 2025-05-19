@@ -7,16 +7,31 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './UserStyle.css';
-import { useRoute } from './RouteContext';
-import { getDirectionPhoto } from './API/NavigationAPI';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { getRoute, getDirectionPhoto } from './API/NavigationAPI';
+import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import Header from './components/Header';
 import SearchButton from './components/SearchButton';
 
 function NavigationDirections() {
-  const { route } = useRoute();
+  const { source, destination } = useParams();
+  const [route, setRoute] = useState([]);
   const [imgUrls, setImgUrls] = useState([]);
   const navigate = useNavigate(); // Initialize useNavigate
+
+  useEffect(() => {
+    const fetchRoute = async () => {
+      if (source && destination) {
+        try {
+          const routeData = await getRoute(source, destination);
+          setRoute(routeData);
+        } catch (err) {
+          console.error('Failed to fetch route:', err);
+        }
+      }
+    };
+    fetchRoute();
+  }, [source, destination]);
+
   useEffect(() => {
     const fetchImageUrls = async () => {
       if (route && route.length >= 2) {

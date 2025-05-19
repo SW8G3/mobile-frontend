@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getNodeFromId, getRoute } from '../API/NavigationAPI';
-import { useRoute } from '../RouteContext';
+import { getNodeFromId } from '../API/NavigationAPI';
 import Header from './Header';
 import SearchBox from './SearchBox';
 import SearchButton from './SearchButton'; // Import the SearchButton component
@@ -13,7 +12,6 @@ function NavigationSearch() {
   const [from, setFrom] = useState(0);
   const [to, setTo] = useState(0);
   const [error, setError] = useState(null);
-  const { setRoute } = useRoute();
   const navigate = useNavigate();
 
   // Set the "from" field based on the URL parameter and call handleFromChange
@@ -43,13 +41,10 @@ function NavigationSearch() {
   }, [nodeId]);
   const handleSearch = async () => {
     try {
-      const result = await getRoute(from, to);
-      setRoute(result.route);
       setError(null); // Clear any previous errors
-      navigate('/directions');
+      navigate(`/directions/${from}/${to}`);
     } catch (err) {
       setError('Failed to fetch route. Please try again.');
-      setRoute(null); // Clear previous route data
       console.error('Error fetching route:', err);
     }
   };
