@@ -39,7 +39,7 @@ const getRoute = async (src, dst) => {
             dst: parseInt(dst),
         };
         const response = await api.post('/route', data);
-        return response.data;
+        return response.data.route;
     } catch (err) {
         console.error(err);
         throw err;

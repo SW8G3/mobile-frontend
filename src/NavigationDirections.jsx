@@ -14,47 +14,42 @@ import SearchButton from './components/SearchButton';
 
 function NavigationDirections() {
   const { source, destination } = useParams();
-  const [route, setRoute] = useState([]);
   const [imgUrls, setImgUrls] = useState([]);
   const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
-    const fetchRoute = async () => {
-      if (source && destination) {
-        try {
-          const routeData = await getRoute(source, destination);
-          setRoute(routeData);
-        } catch (err) {
-          console.error('Failed to fetch route:', err);
-        }
-      }
-    };
-    fetchRoute();
-  }, [source, destination]);
+  const fetchRouteAndImages = async () => {
+    if (source && destination) {
+      try {
+        const routeData = await getRoute(source, destination);
 
-  useEffect(() => {
-    const fetchImageUrls = async () => {
-      if (route && route.length >= 2) {
-        const urls = [];
-        for (let i = 0; i < route.length - 1; i++) {
-          try {
-            const response = await getDirectionPhoto(route[i], route[i + 1]);
-            console.log(response);
-            urls.push(response.imgUrl); // Add the image URL to the array
-          } catch (err) {
-            console.error(
-              `Failed to fetch image for nodes ${route[i]} and ${
-                route[i + 1]
-              }:`,
-              err
-            );
+        console.log('Route data:', routeData); // Log the route data for debugging
+        if (Array.isArray(routeData) && routeData.length >= 2) {
+          
+          const urls = [];
+          for (let i = 0; i < routeData.length - 1; i++) {
+            try {
+              const response = await getDirectionPhoto(routeData[i], routeData[i + 1]);
+              urls.push(response.imgUrl);
+            } catch (err) {
+              console.error(
+                `Failed to fetch image for nodes ${routeData[i]} and ${routeData[i + 1]}:`,
+                err
+              );
+            }
           }
+          setImgUrls(urls);
+        } else {
+          setImgUrls([]);
         }
-        setImgUrls(urls); // Update the state with the fetched URLs
+      } catch (err) {
+        console.error('Failed to fetch route:', err);
+        setImgUrls([]);
       }
-    };
-    fetchImageUrls();
-  }, [route]);
+    }
+  };
+  fetchRouteAndImages();
+}, [source, destination]);
   return (
     <div style={styles.container}>
       <Header />
